@@ -1,34 +1,75 @@
+import React from 'react';
 import HomeIcon from '/static/HomeIcon.svg';
 import M1 from '/static/Mockup1.svg';
-import M2 from '/static/M2.svg';
-import Bene1 from '/static/Bene1.svg'
+import Bene1 from '/static/Bene1.svg';
+import PlayD from '/static/PlayD.svg';
+import AppD from '/static/AppD.svg';
+import Underline from '/static/Underline.svg';
 
 export default function Download() {
   return (
-    <div className="max-w-full rounded-[56px] bg-[#FFEFEF] mt-3 mr-3 ml-3 mb-3 opacity-100 flex justify-between items-center px-10 py-8 shadow-md">
-      {/* Left Content Section */}
-      <div className="flex flex-col justify-center ml-10 flex-1">
-        <div className="mb-6">
-          <p className="text-[145px] font-antonio leading-none" style={{ color: '#FF0000' }}>EXPERT SERVICES</p>
-          <div className="flex items-center gap-4 mt-2">
-            <p className="text-[145px] font-antonio leading-none" style={{ color: '#FF0000' }}>AT</p>
-            <p className="text-[145px] font-antonio underline leading-none" style={{ color: '#FF0000' }}>HOME!</p>
-            <img src={HomeIcon} alt="Home icon" className="w-[145px] h-[145px]" />
+    <div>
+      {/* Pink Box Section */}
+      <div className="max-w-full rounded-[56px] bg-[#FFEFEF] mt-6 mx-6 px-10 py-8 flex justify-between items-center relative shadow-md">
+        {/* Left Content Section */}
+        <div className="flex flex-col justify-center flex-1">
+          <div>
+            <p className="text-[60px] sm:text-[135px] font-antonio leading-none text-[#FF0000]">
+              EXPERT SERVICES
+            </p>
+            <div className="flex items-center gap-4 mt-2">
+              <p className="text-[60px] sm:text-[135px] font-antonio leading-none text-[#FF0000]">AT</p>
+              <p className="text-[60px] sm:text-[135px] font-antonio underline leading-none text-[#FF0000]">
+                HOME!
+              </p>
+              <img src={HomeIcon} alt="Home icon" className="w-[45px] h-[45px] sm:w-[145px] sm:h-[145px]" />
+            </div>
+          </div>
+
+          <p className="w-full sm:w-[589px] text-[12px] sm:text-[24px] mt-10 mb-3 text-[#808285]">
+            Why step out when luxury can come to you? Book beauty services from top-rated professionals anytime, at your place.
+          </p>
+
+          <div className="mt-4">
+            <img src={Bene1} alt="Benefits" className="mb-10 max-w-full h-auto" />
           </div>
         </div>
-        
-        <p className="w-[589px] text-[24px] mb-8" style={{ color: '#808285' }}>
-          Why step out when luxury can come to you? Book beauty services from top-rated professionals anytime, at your place.
-        </p>
-        
-        <div className="mt-4">
-          <img src={Bene1} alt="Benefits" className="max-w-full h-auto" />
+
+        {/* Right Image Section */}
+        <div className="max-w-full h-auto">
+          <img src={M1} alt="Mobile mockup" className="w-[550px] h-[650px]" />
         </div>
       </div>
-      
-      {/* Right Image Section */}
-      <div className="flex-shrink-0 flex items-center justify-center">
-        <img src={M1} alt="Mobile mockup" className="max-w-full h-auto" />
+
+      {/* Download Section */}
+      <div className="flex flex-col items-center text-center py-10 mt-10">
+        <div className="relative">
+          <h1 className="text-[40px] font-semibold font-montserrat mb-3">
+            DOWNLOAD THE APP
+          </h1>
+          <img
+            src={Underline}
+            alt="Underline"
+            className="absolute bottom-[-5px] left-1/2 transform -translate-x-1/2 w-full max-w-[400px]"
+          />
+        </div>
+
+        <div className="flex flex-col gap-4 mt-6">
+          <a
+            href="#"
+            className="rounded-[45px] flex items-center gap-3 px-6 py-3 border-2 border-black rounded-lg hover:bg-black hover:text-white transition-colors"
+          >
+            <img src={PlayD} alt="Play Store" className="w-10 h-10 mr-5" />
+            <span className="font-montserrat text-[35px] font-normal ">Get it on play store</span>
+          </a>
+          <a
+            href="#"
+            className="rounded-[45px] flex items-center gap-3 px-6 py-3 border-2 border-black hover:bg-black hover:text-white transition-colors"
+          >
+            <img src={AppD} alt="App Store" className="w-10 h-10 mr-5" />
+            <span className="font-montserrat text-[35px] font-normal ">Get it on app store</span>
+          </a>
+        </div>
       </div>
     </div>
   );
