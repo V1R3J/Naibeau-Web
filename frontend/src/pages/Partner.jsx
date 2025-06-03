@@ -88,34 +88,40 @@ export default function Partner() {
       </div>
 
       {/* App Download Section */}
-      <div className="w-[90%] max-w-[1700px] mt-10 mb-3 mx-auto px-10 py-4 bg-[#FFEFEF] rounded-[56px] shadow-md flex flex-col sm:flex-row justify-between items-center">
-        {/* Logo and Text */}
-        <div className="flex flex-col justify-center sm:w-1/2">
-          <img src={Logo} alt="Naibeau Logo" className="mt-10 w-[200px] h-[60px] mb-4" />
-          <p className="font-montserrat font-bold text-[50px]">
+      <div className="w-[90%] max-w-[1700px] mt-10 mb-3 mx-auto px-6 py-6 bg-[#FFEFEF] rounded-[56px] shadow-md flex flex-col lg:flex-row items-center lg:items-start">
+        {/* Left Section: Logo, Text, and Buttons */}
+        <div className="flex flex-col justify-center lg:w-2/3">
+          {/* Logo */}
+          <img src={Logo} alt="Naibeau Logo" className="mt-4 w-[180px] h-auto mb-6 mx-auto lg:mx-0" />
+          
+          {/* Text */}
+          <h2 className="text-center lg:text-left font-bold text-[36px] md:text-[50px] font-montserrat">
             Download the <br />
             <span className="underline text-[#FF0000]">Partner App now!</span>
+          </h2>
+          <p className="mt-6 ml-6 mr-6 text-center lg:text-left font-semibold text-[18px] md:text-[24px] text-gray-800 leading-snug">
+            Redefine convenience. <br/>Book your next beauty appointment on the Naibeau app.
           </p>
-          <p className="mt-4 font-montserrat font-semibold text-[30px] md:text-[24px] text-gray-800">
-            Redefine convenience. Book your next beauty appointment on the Naibeau app.
-          </p>
+
+          {/* App Download Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6 mt-8">
+            <a href="#" className="cursor-pointer">
+              <img src={AppD} alt="App Store" className="w-[200px] md:w-[250px] h-auto mx-auto sm:mx-0" />
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.naibeau" className="cursor-pointer">
+              <img src={PlayD} alt="Google Play" className="w-[200px] md:w-[250px] h-auto mx-auto sm:mx-0" />
+            </a>
+          </div>
         </div>
 
-        {/* App Download Buttons */}
-        <div className="flex space-x-4 mt-6">
-          <a href="#" className="cursor-pointer">
-            <img src={AppD} alt="App Store" className="w-[250px] h-auto" />
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.naibeau_user" className="cursor-pointer">
-            <img src={PlayD} alt="Google Play" className="w-[250px] h-auto" />
-          </a>
-        </div>
-
-        {/* Scan Image */}
-        <div className="sm:w-1/2 flex justify-center sm:justify-end">
-          <img src={Scan} alt="Scan QR Code" className="w-[550px] h-[500px]" />
+        {/* Right Section: Scan QR Code */}
+        <div className="mt-8 lg:mt-0 lg:ml-auto lg:w-1/3 flex justify-center lg:justify-end">
+          <img src={Scan} alt="Scan QR Code" className="w-[300px] md:w-[400px] lg:w-[450px] h-auto" />
         </div>
       </div>
+
+
+
     </div>
   );
 }
