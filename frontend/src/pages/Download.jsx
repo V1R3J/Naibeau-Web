@@ -22,11 +22,11 @@ export default function Download() {
               <p className="text-[60px] sm:text-[135px] font-antonio underline leading-none text-[#FF0000]">
                 HOME!
               </p>
-              <img src={HomeIcon} alt="Home icon" className="w-[45px] h-[45px] sm:w-[145px] sm:h-[145px]" />
+              {/*<img src={HomeIcon} alt="Home icon" className="w-[40px] h-[40px] sm:w-[135px] sm:h-[135px]" />*/}
             </div>
           </div>
 
-          <p className="w-full sm:w-[589px] text-[12px] sm:text-[24px] mt-10 mb-3 text-[#808285]">
+          <p className="w-full sm:w-[589px] text-[12px] sm:text-[20px] mt-10 mb-3 text-[#808285]">
             Why step out when luxury can come to you? Book beauty services from top-rated professionals anytime, at your place.
           </p>
 
@@ -42,7 +42,7 @@ export default function Download() {
       </div>
 
       {/* Download Section */}
-      <div className="flex flex-col items-center text-center py-10 mt-10">
+      <div className="flex flex-col items-center text-center py-10 mt-10 mb-10">
         <div className="relative">
           <h1 className="text-[40px] font-semibold font-montserrat mb-3">
             DOWNLOAD THE APP
@@ -56,8 +56,8 @@ export default function Download() {
 
         <div className="flex flex-col gap-4 mt-6">
           <a
-            href="#"
-            className="rounded-[45px] flex items-center gap-3 px-6 py-3 border-2 border-black rounded-lg hover:bg-black hover:text-white transition-colors"
+            href="https://play.google.com/store/apps/details?id=com.naibeau_user"
+            className="rounded-[45px] flex items-center gap-3 px-6 py-3 border-2 border-black  hover:bg-black hover:text-white transition-colors"
           >
             <img src={PlayD} alt="Play Store" className="w-10 h-10 mr-5" />
             <span className="font-montserrat text-[35px] font-normal ">Get it on play store</span>

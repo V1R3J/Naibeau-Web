@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaInstagram, FaFacebook, FaYoutube, FaPhone, FaEnvelopeOpen } from 'react-icons/fa';
-import { SiX } from 'react-icons/si';
+import { FaInstagram, FaFacebook, FaWhatsapp, FaLinkedin, FaPhone, FaEnvelopeOpen } from 'react-icons/fa';
 import LogoW from '/static/LogoW.svg';
 
 export default function Footer() {
@@ -59,8 +58,8 @@ export default function Footer() {
         <div className="flex gap-4 text-red-600 text-xl">
           <a href="#" aria-label="Instagram"><FaInstagram /></a>
           <a href="#" aria-label="Facebook"><FaFacebook /></a>
-          <a href="#" aria-label="X (Twitter)"><SiX /></a>
-          <a href="#" aria-label="YouTube"><FaYoutube /></a>
+          <a href="#" aria-label="WhatsApp"><FaWhatsapp /></a>
+          <a href="#" aria-label="LinkedIn"><FaLinkedin /></a>
         </div>
         <p className="text-sm text-gray-400 text-center md:text-right">
           HealNet &copy; 2024. All rights reserved.
