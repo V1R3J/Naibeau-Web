@@ -10,7 +10,13 @@ export default function Download() {
   return (
     <div>
       {/* Pink Box Section */}
-      <div className="max-w-full rounded-[56px] bg-[#FFEFEF] mt-6 mx-6 px-10 py-8 flex justify-between items-center relative shadow-md">
+      <div className="max-w-97% h-[760px] rounded-[56px]  mt-6 mx-6 px-10 py-8 flex justify-between items-center relative shadow-md"
+      style={{
+          backgroundImage: `url(/static/Vector8.svg)`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}>
         {/* Left Content Section */}
         <div className="flex flex-col justify-center flex-1">
           <div>
@@ -35,10 +41,10 @@ export default function Download() {
           </div>
         </div>
 
-        {/* Right Image Section */}
+        {/* Right Image Section 
         <div className="max-w-full h-auto">
           <img src={M1} alt="Mobile mockup" className="w-[550px] h-[650px]" />
-        </div>
+        </div> */}
       </div>
 
       {/* Download Section */}
@@ -57,14 +63,14 @@ export default function Download() {
         <div className="flex flex-col gap-4 mt-6">
           <a
             href="https://play.google.com/store/apps/details?id=com.naibeau_user"
-            className="rounded-[45px] flex items-center gap-3 px-6 py-3 border-2 border-black  hover:bg-red-600 hover:text-white transition-colors"
+            className="rounded-[45px] flex items-center gap-3 px-6 py-3 border-2 border-black  hover:bg-red-400 hover:text-white transition-colors"
           >
             <img src={PlayD} alt="Play Store" className="w-10 h-10 mr-5" />
             <span className="font-montserrat text-[35px] font-normal ">Get it on play store</span>
           </a>
           <a
             href="#"
-            className="rounded-[45px] flex items-center gap-3 px-6 py-3 border-2 border-black hover:bg-red-600 hover:text-white transition-colors"
+            className="rounded-[45px] flex items-center gap-3 px-6 py-3 border-2 border-black hover:bg-red-400 hover:text-white transition-colors"
           >
             <img src={AppD} alt="App Store" className="w-10 h-10 mr-5" />
             <span className="font-montserrat text-[35px] font-normal ">Get it on app store</span>

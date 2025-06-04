@@ -7,14 +7,19 @@ import PlayD from '/static/GplayB.svg';
 import Logo from '/static/Logo.svg';
 import Scan from '/static/Scan.svg';
 
+{/*
+  Vector6: Hero Section Bg
+  Vector7: Text Section Bg
+  */}
+
 export default function Partner() {
   return (
     <div>
       {/* Upper Section */}
       <div
-        className="w-[1500px] h-[700px] rounded-[56px] bg-[#FFEFEF] mt-3 mx-3 px-10 py-8 flex shadow-md relative"
+        className="w-[1500px] h-[700px] rounded-[56px] bg-[#FFEFEF] mt-3 mx-3 px-8 py-8 flex shadow-md relative"
         style={{
-          backgroundImage: `url(${Vector1})`,
+          backgroundImage: `url(/static/Vector6.svg)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -37,7 +42,7 @@ export default function Partner() {
 
         {/* Partners Image */}
         <div className="flex justify-end items-center">
-          <img src={Partners} alt="Partners" className="max-h-[600px] max-w-full" />
+          <img src={Partners} alt="Partners" className="h-full w-full mb-1 " />
         </div>
       </div>
 
@@ -76,7 +81,7 @@ export default function Partner() {
 
       {/* Additional Content */}
       <div className="mt-60 text-center mx-auto max-w-[900px] px-4">
-        <p className="font-montserrat text-[20px] sm:text-[24px]">
+        <p className="font-montserrat text-[20px] sm:text-[24px] ">
           <span className="font-semibold text-black">
             For a life-changing experience, join Naibeau Company.
           </span>
@@ -88,37 +93,35 @@ export default function Partner() {
       </div>
 
       {/* App Download Section */}
-      <div className="w-[90%] max-w-[1700px] mt-10 mb-3 mx-auto px-6 py-6 bg-[#FFEFEF] rounded-[56px] shadow-md flex flex-col lg:flex-row items-center lg:items-start">
-        {/* Left Section: Logo, Text, and Buttons */}
-        <div className="flex flex-col justify-center lg:w-2/3">
-          {/* Logo */}
-          <img src={Logo} alt="Naibeau Logo" className="mt-4 w-[180px] h-auto mb-6 mx-auto lg:mx-0" />
-          
-          {/* Text */}
-          <h2 className="text-center lg:text-left font-bold text-[36px] md:text-[50px] font-montserrat">
-            Download the <br />
-            <span className="underline text-[#FF0000]">Partner App now!</span>
-          </h2>
-          <p className="mt-6 ml-6 mr-6 text-center lg:text-left font-semibold text-[18px] md:text-[24px] text-gray-800 leading-snug">
-            Redefine convenience. <br/>Book your next beauty appointment on the Naibeau app.
-          </p>
+      <div className="max-w-[1500px] w-auto max-h-[600px] h-auto mt-5 ml-3 mr-3 mb-5 bg-[#F4E3E3] border-[#EA9494] border-4 rounded-[56px] shadow-md flex ">
+          {/* Left Section: Logo, Text, and Buttons */}
+          <div className="mt-6 mb-1 mr-6 ml-6 flex flex-col justify-center ">
+            {/* Logo */}
+            <img src={Logo} alt="Naibeau Logo" className="max-w-[200px] max-h-[50px] h-auto w-auto mt-10 mb-3 ml-8 mr-3" />
+            {/* Text */}
+            <h2 className="text-left font-semibold text-[36px] md:text-[50px] font-montserrat ml-8 mr-3 mt-3">
+              Download the <br />
+              <span className="underline text-[#FF0000]">Partner App now!</span>
+            </h2>
+            <p className="mt-3 ml-8 mr-3 text-left font-semibold text-[25px] text-[#000000] ">
+              Redefine convenience. <br/>Book your next beauty appointment on the Naibeau app.
+            </p>
 
-          {/* App Download Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6 mt-8">
-            <a href="#" className="cursor-pointer">
-              <img src={AppD} alt="App Store" className="w-[200px] md:w-[250px] h-auto mx-auto sm:mx-0" />
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=com.naibeau" className="cursor-pointer">
-              <img src={PlayD} alt="Google Play" className="w-[200px] md:w-[250px] h-auto mx-auto sm:mx-0" />
-            </a>
+            {/* App Download Buttons */}
+            <div className="flex flex-row gap-6  ml-6 mt-1">
+              <a href="#" className="cursor-pointer">
+                <img src={AppD} alt="App Store" className="w-[200px] md:w-[250px] h-auto mx-auto sm:mx-0" />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.naibeau" className="cursor-pointer">
+                <img src={PlayD} alt="Google Play" className="w-[200px] md:w-[250px] h-auto mx-auto sm:mx-0" />
+              </a>
+            </div>
           </div>
-        </div>
 
-        {/* Right Section: Scan QR Code */}
-        <div className="mt-8 lg:mt-0 lg:ml-auto lg:w-1/3 flex justify-center lg:justify-end">
-          <img src={Scan} alt="Scan QR Code" className="w-[300px] md:w-[400px] lg:w-[450px] h-auto" />
+          {/* Right Section: Scan QR Code */}
+          <img src={Scan} alt="Scan QR Code" className=" w-[500px] h-[600px] -mt-1 align-baseline" />
+          
         </div>
-      </div>
 
 
 

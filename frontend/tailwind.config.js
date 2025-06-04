@@ -9,6 +9,8 @@ export default {
       fontFamily: {
         antonio: ['Antonio', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
+        norican: ['Norican', 'cursive'],
+
       },
     },
   },
