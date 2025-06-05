@@ -45,7 +45,7 @@ export default function Footer() {
             <FaEnvelopeOpen className="text-red-600" /> support@naibeau.com
           </p>
           <p className="flex items-center gap-2 mb-4 text-gray-300">
-            <FaPhone className="text-red-600" /> +91 00000 00000
+            <FaPhone className="text-red-600" /> +91 92271 77657
           </p>
         </div>
       </div>
@@ -55,14 +55,14 @@ export default function Footer() {
 
       {/* Bottom Row */}
       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <div className="flex gap-4 text-red-600 text-xl">
-          <a href="#" aria-label="Instagram"><FaInstagram /></a>
-          <a href="#" aria-label="Facebook"><FaFacebook /></a>
-          <a href="#" aria-label="WhatsApp"><FaWhatsapp /></a>
-          <a href="#" aria-label="LinkedIn"><FaLinkedin /></a>
+        <div className="flex gap-4 text-red-600  text-3xl">
+          <a href="https://www.instagram.com/naibeau.official/" aria-label="Instagram" className="hover:text-white"><FaInstagram /></a>
+          <a href="https://www.facebook.com/profile.php?id=61563181074987#" aria-label="Facebook" className="hover:text-white"><FaFacebook /></a>
+          <a href="https://wa.me/naibeau" aria-label="WhatsApp" className="hover:text-white"><FaWhatsapp /></a>
+          <a href="https://www.linkedin.com/company/naibeau/" aria-label="LinkedIn" className="hover:text-white"><FaLinkedin /></a>
         </div>
         <p className="text-sm text-gray-400 text-center md:text-right">
-          HealNet &copy; 2024. All rights reserved.
+          Naiplus Solutions pvt. ltd. &copy; 2024. All rights reserved.
         </p>
       </div>
     </footer>

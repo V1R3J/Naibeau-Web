@@ -5,7 +5,7 @@ import Bene2 from '/static/Bene2.svg';
 import AppD from '/static/AStoreB.svg';
 import PlayD from '/static/GplayB.svg';
 import Logo from '/static/Logo.svg';
-import Scan from '/static/Scan.svg';
+import PScan from '/static/PScan.svg';
 
 {/*
   Vector6: Hero Section Bg
@@ -17,7 +17,7 @@ export default function Partner() {
     <div>
       {/* Upper Section */}
       <div
-        className="w-[1500px] h-[700px] rounded-[56px] bg-[#FFEFEF] mt-3 mx-3 px-8 py-8 flex shadow-md relative"
+        className="w-[97%] h-[700px] rounded-[56px] bg-[#FFEFEF] mt-3 mx-3 px-8 py-8 flex shadow-md relative"
         style={{
           backgroundImage: `url(/static/Vector6.svg)`,
           backgroundSize: 'cover',
@@ -42,7 +42,7 @@ export default function Partner() {
 
         {/* Partners Image */}
         <div className="flex justify-end items-center">
-          <img src={Partners} alt="Partners" className="h-full w-full mb-1 " />
+          <img src={Partners} alt="Partners" className="h-full w-full mb-1 mt-20 ml-20 -mr-1" />
         </div>
       </div>
 
@@ -100,12 +100,13 @@ export default function Partner() {
             <img src={Logo} alt="Naibeau Logo" className="max-w-[200px] max-h-[50px] h-auto w-auto mt-10 mb-3 ml-8 mr-3" />
             {/* Text */}
             <h2 className="text-left font-semibold text-[36px] md:text-[50px] font-montserrat ml-8 mr-3 mt-3">
-              Download the <br />
-              <span className="underline text-[#FF0000]">Partner App now!</span>
+              Download the 
+              <span> Partner App now!</span>
             </h2>
-            <p className="mt-3 ml-8 mr-3 text-left font-semibold text-[25px] text-[#000000] ">
-              Redefine convenience. <br/>Book your next beauty appointment on the Naibeau app.
+            <p className="mt-3 ml-8 mr-3 text-left font-semibold text-[28px] text-[#000000] ">
+              Redefine convenience. <br/>Schedule your next beauty appointment on the Naibeau app.
             </p>
+
 
             {/* App Download Buttons */}
             <div className="flex flex-row gap-6  ml-6 mt-1">
@@ -119,7 +120,7 @@ export default function Partner() {
           </div>
 
           {/* Right Section: Scan QR Code */}
-          <img src={Scan} alt="Scan QR Code" className=" w-[500px] h-[600px] -mt-1 align-baseline" />
+          <img src={PScan} alt="Scan QR Code" className=" w-[500px] h-[600px] ml-20 -mt-1 mr-10 align-baseline" />
           
         </div>
 

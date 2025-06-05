@@ -1,210 +1,166 @@
 import React, { useState, useEffect } from "react";
-import image1 from "/static/image1.png";
-import image2 from "/static/image2.png";
-import image3 from "/static/image3.png";
-import image4 from "/static/image4.png";
-import image5 from "/static/image5.png";
-import image6 from "/static/image6.png";
-import image7 from "/static/image7.png";
-import image8 from "/static/image8.png";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function Gallery() {
-  const [currentImageSet, setCurrentImageSet] = useState(0);
-  const [animationKey, setAnimationKey] = useState(0);
+const Gallery = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(false);
 
-  // Define multiple sets of images for rotation
-  const imageSets = [
-    {
-      topLeft: image1,
-      middle: image2, 
-      topRight: image3,
-      bottomLeft: image4,
-      bottomRight: image5,
-    },
-    {
-      topLeft: image4, // bottom left moves to top left
-      middle: image6, // middle scrolls to new image
-      topRight: image7, // top right scrolls up to new image
-      bottomLeft: image8, // new bottom left
-      bottomRight: image5 // bottom right moves to top right (will be used next)
-    }
+  const galleryItems = [
+    { src: "/static/image1.png", alt: "Gallery Item 1" },
+    { src: "/static/image2.png", alt: "Gallery Item 2" },
+    { src: "/static/image3.png", alt: "Gallery Item 3" },
+    { src: "/static/image4.png", alt: "Gallery Item 4" },
+    { src: "/static/image5.png", alt: "Gallery Item 5" },
+    { src: "/static/image1.png", alt: "Gallery Item 6" },
   ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageSet(prev => (prev + 1) % imageSets.length);
-      setAnimationKey(prev => prev + 1); // Force re-animation
-    }, 4000);
+    // Trigger the main container animation
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
 
-    return () => clearInterval(interval);
+    // Start auto-scrolling after 5 seconds
+    const autoScrollTimer = setTimeout(() => {
+      setIsAutoScrolling(true);
+    }, 5000);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(autoScrollTimer);
+    };
   }, []);
 
-  const currentImages = imageSets[currentImageSet];
+  useEffect(() => {
+    if (isAutoScrolling) {
+      const interval = setInterval(() => {
+        setCurrentIndex(prev => (prev + 1) % (galleryItems.length - 2));
+      }, 3000);
+
+      return () => clearInterval(interval);
+    }
+  }, [isAutoScrolling, galleryItems.length]);
+
+  const nextSlide = () => {
+    setIsAutoScrolling(false);
+    setCurrentIndex(prev => (prev + 1) % (galleryItems.length - 2));
+  };
+
+  const prevSlide = () => {
+    setIsAutoScrolling(false);
+    setCurrentIndex(prev => prev === 0 ? galleryItems.length - 3 : prev - 1);
+  };
+
+  const getVisibleItems = () => {
+    return [
+      galleryItems[currentIndex],
+      galleryItems[currentIndex + 1],
+      galleryItems[currentIndex + 2]
+    ];
+  };
 
   return (
-    <>
-      <style>{`
-        @keyframes slideDown {
-          from {
-            transform: translateY(-100%);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
+    <div
+      className={`w-[97%] h-[900px] mx-auto mt-5 mb-5 rounded-[56px] shadow-md border-2 border-[#FE4D4D] p-10 transition-all duration-1000 ease-out ${
+        isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+      }`}
+      style={{
+        backgroundImage: `url(/static/Vector2.svg)`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
+      <h2 className={`text-center font-bold text-[36px] md:text-[40px] text-black mb-12 transition-all duration-800 ease-out delay-200 ${
+        isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform -translate-y-4'
+      }`}>
+        Our Gallery
+      </h2>
+      
+      <div className="relative flex items-center justify-center h-[600px]">
+        {/* Left Arrow */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-8 z-10 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110"
+        >
+          <ChevronLeft className="w-6 h-6 text-[#FE4D4D]" />
+        </button>
 
-        @keyframes slideUp {
-          from {
-            transform: translateY(100%);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
-
-        @keyframes slideUpLeft {
-          from {
-            transform: translateY(100%) translateX(-20%);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0) translateX(0);
-            opacity: 1;
-          }
-        }
-
-        @keyframes slideUpRight {
-          from {
-            transform: translateY(100%) translateX(20%);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0) translateX(0);
-            opacity: 1;
-          }
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: scale(0.9);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        .animate-slideDown {
-          animation: slideDown 1s ease-in-out;
-        }
-
-        .animate-slideUp {
-          animation: slideUp 1s ease-in-out;
-        }
-
-        .animate-slideUpLeft {
-          animation: slideUpLeft 1s ease-in-out;
-        }
-
-        .animate-slideUpRight {
-          animation: slideUpRight 1s ease-in-out;
-        }
-
-        .animate-fadeIn {
-          animation: fadeIn 1s ease-in-out;
-        }
-      `}</style>
-
-      {/* Our Gallery */}
-      <div className="py-16 px-8">
-        <div className="max-w-7xl mx-auto">
-          {/* Title */}
-          <h1 className="text-5xl font-bold text-center text-gray-800 mb-16">
-            Our Gallery
-          </h1>
-
-          {/* Gallery Grid */}
-          <div className="grid grid-cols-12 grid-rows-8 gap-4 h-[600px] max-w-6xl mx-auto">
-            {/* Top Left Image */}
-            <div className="col-span-4 row-span-4 relative overflow-hidden rounded-2xl shadow-lg group">
+        {/* Gallery Cards Container */}
+        <div className="flex items-end justify-center gap-8 transition-all duration-700 ease-in-out">
+          {getVisibleItems().map((item, index) => (
+            <div
+              key={`${currentIndex}-${index}`}
+              className={`relative rounded-2xl overflow-hidden shadow-2xl transition-all duration-700 ease-out hover:scale-105 group ${
+                index === 1 
+                  ? 'w-[400px] h-[500px] transform scale-110 z-10' 
+                  : 'w-[320px] h-[400px]'
+              } ${
+                isVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{
+                transitionDelay: `${300 + (index * 150)}ms`
+              }}
+            >
               <img
-                key={`topLeft-${animationKey}`}
-                src={currentImages.topLeft}
-                alt="Gallery Image 1"
-                className="w-full h-full object-cover transition-all duration-300 ease-in-out transform group-hover:scale-105 animate-fadeIn"
+                src={item.src}
+                alt={item.alt}
+                className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              {/* Red Gradient Overlay */}
+              <div className={`absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-red-600/80 via-red-500/60 to-transparent transition-all duration-300 ${
+                index === 1 ? 'from-red-700/90 via-red-600/70' : ''
+              }`}></div>
+              
+              {/* Highlight Ring for Middle Card */}
+              {index === 1 && (
+                <div className="absolute inset-0 rounded-2xl ring-4 ring-red-400/50 ring-offset-2 ring-offset-white/20"></div>
+              )}
             </div>
-
-            {/* Middle Large Image */}
-            <div className="col-span-4 row-span-8 relative overflow-hidden rounded-2xl shadow-xl group">
-              <img
-                key={`middle-${animationKey}`}
-                src={currentImages.middle}
-                alt="Gallery Image 2"
-                className="w-full h-full object-cover transition-all duration-300 ease-in-out transform group-hover:scale-105 animate-slideDown"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-
-            {/* Top Right Image */}
-            <div className="col-span-4 row-span-4 relative overflow-hidden rounded-2xl shadow-lg group">
-              <img
-                key={`topRight-${animationKey}`}
-                src={currentImages.topRight}
-                alt="Gallery Image 3"
-                className="w-full h-full object-cover transition-all duration-300 ease-in-out transform group-hover:scale-105 animate-slideUp"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-
-            {/* Bottom Left Image */}
-            <div className="col-span-4 row-span-4 relative overflow-hidden rounded-2xl shadow-lg group">
-              <img
-                key={`bottomLeft-${animationKey}`}
-                src={currentImages.bottomLeft}
-                alt="Gallery Image 4"
-                className="w-full h-full object-cover transition-all duration-300 ease-in-out transform group-hover:scale-105 animate-slideUpLeft"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-
-            {/* Bottom Right Image */}
-            <div className="col-span-4 row-span-4 relative overflow-hidden rounded-2xl shadow-lg group">
-              <img
-                key={`bottomRight-${animationKey}`}
-                src={currentImages.bottomRight}
-                alt="Gallery Image 5"
-                className="w-full h-full object-cover transition-all duration-300 ease-in-out transform group-hover:scale-105 animate-slideUpRight"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-          </div>
-
-          {/* Navigation Dots */}
-          <div className="flex justify-center mt-12 space-x-3">
-            {imageSets.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setCurrentImageSet(index);
-                  setAnimationKey(prev => prev + 1);
-                }}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  currentImageSet === index 
-                    ? 'bg-red-500 scale-125' 
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-              />
-            ))}
-          </div>
+          ))}
         </div>
+
+        {/* Right Arrow */}
+        <button
+          onClick={nextSlide}
+          className="absolute right-8 z-10 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110"
+        >
+          <ChevronRight className="w-6 h-6 text-[#FE4D4D]" />
+        </button>
       </div>
-    </>
+
+      {/* Dots Indicator */}
+      <div className="flex justify-center mt-8 gap-2">
+        {Array.from({ length: galleryItems.length - 2 }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => {
+              setIsAutoScrolling(false);
+              setCurrentIndex(index);
+            }}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentIndex 
+                ? 'bg-[#FE4D4D] scale-125' 
+                : 'bg-gray-300 hover:bg-gray-400'
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* Auto-scroll indicator */}
+      {isAutoScrolling && (
+        <div className="text-center mt-4">
+          <span className="text-sm text-gray-600 bg-white/70 px-3 py-1 rounded-full">
+            Auto-scrolling...
+          </span>
+        </div>
+      )}
+    </div>
   );
-}
+};
+
+export default Gallery;
