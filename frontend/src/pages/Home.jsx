@@ -92,84 +92,84 @@ export default function Home() {
 
       {/* What We Offer Section */}
       <div
-  className="p-10 rounded-[56px] shadow-md mt-3"
-  style={{
-    backgroundImage: `url(/static/Vector3.svg)`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-  }}
->
-  <div className="text-center">
-    <h2 className="font-montserrat font-semibold text-[40px] mb-2">What We Offer!</h2>
-    <p className="text-[25px] font-sans text-gray-600">
-      Discover a wide range of personalized beauty and grooming services tailored just for you.
-    </p>
-  </div>
+        className="p-10 rounded-[56px] shadow-md mt-3"
+        style={{
+          backgroundImage: `url(/static/Vector3.svg)`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="text-center">
+          <h2 className="font-montserrat font-semibold text-[40px] mb-2">What We Offer!</h2>
+          <p className="text-[25px] font-sans text-gray-600">
+            Discover a wide range of personalized beauty and grooming services tailored just for you.
+          </p>
+        </div>
 
-  <div className="flex items-center justify-center mt-5">
-    <div className="bg-white rounded-full p-2 w-[460px] h-[70px] shadow-md flex justify-between items-center">
-      <button
-        className={`flex items-center justify-center gap-2 w-[223px] h-[65px] py-2 px-6 rounded-full font-semibold ${
-          activeTab === "Women" ? "bg-[#FF0000] text-white" : "text-gray-700"
-        }`}
-        onClick={() => setActiveTab("Women")}
-      >
-        <img
-          src={activeTab === "Women" ? femaleiconw : femaleicon}
-          className="w-10 h-10"
-          alt="Female Icon"
-        />
-        <p className="font-montserrat text-[30px]">Women</p>
-      </button>
-      <button
-        className={`flex items-center justify-center gap-2 w-[223px] h-[65px] py-2 px-6 rounded-full font-semibold ${
-          activeTab === "Men" ? "bg-[#FF0000] text-white" : "text-gray-700"
-        }`}
-        onClick={() => setActiveTab("Men")}
-      >
-        <img
-          src={activeTab === "Men" ? maleiconw : maleicon}
-          className="w-10 h-10"
-          alt="Male Icon"
-        />
-        <p className="font-montserrat text-[30px]">Men</p>
-      </button>
-    </div>
-  </div>
+        <div className="flex items-center justify-center mt-5">
+          <div className="bg-white rounded-full p-2 w-[460px] h-[70px] shadow-md flex justify-between items-center">
+            <button
+              className={`flex items-center justify-center gap-2 w-[223px] h-[65px] py-2 px-6 rounded-full font-semibold ${
+                activeTab === "Women" ? "bg-[#FF0000] text-white" : "text-gray-700"
+              }`}
+              onClick={() => setActiveTab("Women")}
+            >
+              <img
+                src={activeTab === "Women" ? femaleiconw : femaleicon}
+                className="w-10 h-10"
+                alt="Female Icon"
+              />
+              <p className="font-montserrat text-[30px]">Women</p>
+            </button>
+            <button
+              className={`flex items-center justify-center gap-2 w-[223px] h-[65px] py-2 px-6 rounded-full font-semibold ${
+                activeTab === "Men" ? "bg-[#FF0000] text-white" : "text-gray-700"
+              }`}
+              onClick={() => setActiveTab("Men")}
+            >
+              <img
+                src={activeTab === "Men" ? maleiconw : maleicon}
+                className="w-10 h-10"
+                alt="Male Icon"
+              />
+              <p className="font-montserrat text-[30px]">Men</p>
+            </button>
+          </div>
+        </div>
 
-  <div
-    className={`mt-8 ${
-      activeTab === "Men" ? "flex justify-center gap-6" : "grid grid-cols-1 sm:grid-cols-3 gap-6"
-    }`}
-  >
-    {services[activeTab].map((service, index) => (
-      <div
-        key={index}
-        className="p-[3px] bg-[#E7E7E7] rounded-[21px] cursor-pointer"
-        style={{ width: "406px", height: "456px" }}
-        onClick={() => window.location.href = "/download"}
-      >
         <div
-          className="rounded-[21px] shadow-md bg-[#FFFFFF] p-6 font-montserrat text-center flex flex-col justify-between
-          hover:bg-gray-800 hover:bg-opacity-60
-          hover:text-white
-          transition-colors duration-300 ease-in-out"
-          style={{ width: "400px", height: "450px" }}
+          className={`mt-8 ${
+            activeTab === "Men" ? "flex justify-center gap-6" : "grid grid-cols-1 sm:grid-cols-3 gap-6"
+          }`}
         >
-          <img
-            src={service.icon}
-            alt={service.title}
-            className="mx-auto mb-4
-            hover:filter hover:brightness-75
-            transition duration-300 ease-in-out"
-          />
-          <p className="font-montserrat text-[30px] font-medium mt-auto">{service.title}</p>
+          {services[activeTab].map((service, index) => (
+            <div
+              key={index}
+              className="p-[3px] bg-[#E7E7E7] rounded-[21px] cursor-pointer hover:"
+              style={{ width: "406px", height: "456px" }}
+              onClick={() => window.location.href = "/download"}
+            >
+              <div
+                className="rounded-[21px] shadow-md bg-[#FFFFFF] p-6 font-montserrat text-center flex flex-col justify-between
+                hover:bg-[#FFD3D3] hover:bg-opacity-60
+                hover:text-white
+                transition-colors duration-300 ease-in-out"
+                style={{ width: "400px", height: "450px" }}
+              >
+                <img
+                  src={service.icon}
+                  alt={service.title}
+                  className="mx-auto mb-4
+                  hover:filter hover:brightness-75
+                  transition duration-300 ease-in-out"
+                />
+                <p className="font-montserrat text-[30px] font-medium mt-auto">{service.title}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</div>
 
       {/* Refer & Earn Section */}
       <div
