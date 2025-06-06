@@ -1,164 +1,197 @@
-import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import React, { useState, useEffect } from 'react';
 
 const Gallery = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoScrolling, setIsAutoScrolling] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoplay, setIsAutoplay] = useState(true);
 
-  const galleryItems = [
-    { src: "/static/image1.png", alt: "Gallery Item 1" },
-    { src: "/static/image2.png", alt: "Gallery Item 2" },
-    { src: "/static/image3.png", alt: "Gallery Item 3" },
-    { src: "/static/image4.png", alt: "Gallery Item 4" },
-    { src: "/static/image5.png", alt: "Gallery Item 5" },
-    { src: "/static/image1.png", alt: "Gallery Item 6" },
+  const slider = [
+    {
+      title: "Image 1",
+      description: "Our Gallery Collection Showcases a Beautiful Array of Moments, Memories, and Experiences for Every Occasion.",
+      image: "/static/image1.png"
+    },
+    {
+      title: "Image 2", 
+      description: "Our Gallery Collection Showcases a Beautiful Array of Moments, Memories, and Experiences for Every Occasion.",
+      image: "/static/image2.png"
+    },
+    {
+      title: "Image 3",
+      description: "Our Gallery Collection Showcases a Beautiful Array of Moments, Memories, and Experiences for Every Occasion.", 
+      image: "/static/image3.png"
+    },
+    {
+      title: "Image 4",
+      description: "Our Gallery Collection Showcases a Beautiful Array of Moments, Memories, and Experiences for Every Occasion.",
+      image: "/static/image4.png"
+    },
+    {
+      title: "Image 5",
+      description: "Our Gallery Collection Showcases a Beautiful Array of Moments, Memories, and Experiences for Every Occasion.",
+      image: "/static/image5.png"
+    }
   ];
 
+  // Autoplay functionality
   useEffect(() => {
-    // Trigger the main container animation
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 100);
-
-    // Start auto-scrolling after 5 seconds
-    const autoScrollTimer = setTimeout(() => {
-      setIsAutoScrolling(true);
+    if (!isAutoplay) return;
+    
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slider.length);
     }, 5000);
 
-    return () => {
-      clearTimeout(timer);
-      clearTimeout(autoScrollTimer);
-    };
-  }, []);
+    return () => clearInterval(interval);
+  }, [isAutoplay, slider.length]);
 
-  useEffect(() => {
-    if (isAutoScrolling) {
-      const interval = setInterval(() => {
-        setCurrentIndex(prev => (prev + 1) % (galleryItems.length - 2));
-      }, 3000);
-
-      return () => clearInterval(interval);
-    }
-  }, [isAutoScrolling, galleryItems.length]);
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
 
   const nextSlide = () => {
-    setIsAutoScrolling(false);
-    setCurrentIndex(prev => (prev + 1) % (galleryItems.length - 2));
+    setCurrentSlide((prev) => (prev + 1) % slider.length);
   };
 
   const prevSlide = () => {
-    setIsAutoScrolling(false);
-    setCurrentIndex(prev => prev === 0 ? galleryItems.length - 3 : prev - 1);
+    setCurrentSlide((prev) => (prev - 1 + slider.length) % slider.length);
   };
 
-  const getVisibleItems = () => {
-    return [
-      galleryItems[currentIndex],
-      galleryItems[currentIndex + 1],
-      galleryItems[currentIndex + 2]
-    ];
+  const getSlidePosition = (index) => {
+    const diff = index - currentSlide;
+    if (diff === 0) return 'translate-x-0 scale-110 z-30';
+    if (diff === 1 || diff === -(slider.length - 1)) return 'translate-x-24 scale-90 z-20';
+    if (diff === -1 || diff === slider.length - 1) return '-translate-x-24 scale-90 z-20';
+    if (diff === 2 || diff === -(slider.length - 2)) return 'translate-x-48 scale-75 z-10';
+    if (diff === -2 || diff === slider.length - 2) return '-translate-x-48 scale-75 z-10';
+    return 'translate-x-96 scale-50 opacity-0';
   };
 
   return (
-    <div
-      className={`w-[97%] h-[900px] mx-auto mt-5 mb-5 rounded-[56px] shadow-md border-2 border-[#FE4D4D] p-10 transition-all duration-1000 ease-out ${
-        isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
-      }`}
-      style={{
-        backgroundImage: `url(/static/Vector2.svg)`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
+    <div 
+      className="relative w-full min-h-screen bg-white overflow-hidden px-8 lg:px-16"
+      style={{ 
+        backgroundImage: `url(/static/vector2.svg)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
       }}
     >
-      <h2 className={`text-center font-bold text-[36px] md:text-[40px] text-black mb-12 transition-all duration-800 ease-out delay-200 ${
-        isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform -translate-y-4'
-      }`}>
-        Our Gallery
-      </h2>
+      {/* Background overlay for better text visibility */}
+      <div className="absolute inset-0 bg-white/80"></div>
       
-      <div className="relative flex items-center justify-center h-[600px]">
-        {/* Left Arrow */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-8 z-10 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110"
-        >
-          <ChevronLeft className="w-6 h-6 text-[#FE4D4D]" />
-        </button>
-
-        {/* Gallery Cards Container */}
-        <div className="flex items-end justify-center gap-8 transition-all duration-700 ease-in-out">
-          {getVisibleItems().map((item, index) => (
-            <div
-              key={`${currentIndex}-${index}`}
-              className={`relative rounded-2xl overflow-hidden shadow-2xl transition-all duration-700 ease-out hover:scale-105 group ${
-                index === 1 
-                  ? 'w-[400px] h-[500px] transform scale-110 z-10' 
-                  : 'w-[320px] h-[400px]'
-              } ${
-                isVisible 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-8'
-              }`}
-              style={{
-                transitionDelay: `${300 + (index * 150)}ms`
-              }}
+      <div className="container mx-auto py-8 lg:py-16 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 min-h-screen lg:min-h-0">
+          
+          {/* Content Section */}
+          <div className="flex-1 max-w-lg">
+            <span className="text-red-500 uppercase tracking-widest text-sm font-medium">
+              discover
+            </span>
+            <h1 className="text-6xl lg:text-7xl font-bold leading-tight mt-2 mb-6">
+              <span className="bg-gradient-to-r from-red-500 to-black bg-clip-text text-transparent">
+                Beautiful Gallery
+              </span>
+            </h1>
+            <div className="w-24 h-1 bg-red-500 mb-8"></div>
+            <p className="text-black leading-relaxed text-lg mb-8">
+              Our Gallery Collection Showcases a Beautiful Array of Moments, Memories, 
+              and Experiences for Every Craving and Occasion.
+            </p>
+            <button 
+              className="inline-block px-8 py-3 border-2 border-red-500 text-red-500 bg-white
+                       uppercase tracking-wider rounded-full hover:bg-red-500 hover:text-white
+                       transition-all duration-300 ease-in-out"
+              onClick={() => setIsAutoplay(!isAutoplay)}
             >
-              <img
-                src={item.src}
-                alt={item.alt}
-                className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-              />
+              {isAutoplay ? 'Pause Slideshow' : 'Play Slideshow'}
+            </button>
+          </div>
+
+          {/* Slider Section */}
+          <div className="flex-1 relative">
+            <div className="relative h-96 lg:h-[500px] flex items-center justify-center">
               
-              {/* Red Gradient Overlay */}
-              <div className={`absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-red-600/80 via-red-500/60 to-transparent transition-all duration-300 ${
-                index === 1 ? 'from-red-700/90 via-red-600/70' : ''
-              }`}></div>
+              {/* Navigation Buttons */}
+              <button 
+                onClick={prevSlide}
+                className="absolute left-4 z-40 w-12 h-12 bg-white/90 rounded-full 
+                         flex items-center justify-center shadow-lg hover:bg-white 
+                         transition-all duration-300 border-2 border-red-500"
+                onMouseEnter={() => setIsAutoplay(false)}
+                onMouseLeave={() => setIsAutoplay(true)}
+              >
+                <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
               
-              {/* Highlight Ring for Middle Card */}
-              {index === 1 && (
-                <div className="absolute inset-0 rounded-2xl ring-4 ring-red-400/50 ring-offset-2 ring-offset-white/20"></div>
-              )}
+              <button 
+                onClick={nextSlide}
+                className="absolute right-4 z-40 w-12 h-12 bg-white/90 rounded-full 
+                         flex items-center justify-center shadow-lg hover:bg-white 
+                         transition-all duration-300 border-2 border-red-500"
+                onMouseEnter={() => setIsAutoplay(false)}
+                onMouseLeave={() => setIsAutoplay(true)}
+              >
+                <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
+              {/* Slides */}
+              {slider.map((slide, index) => (
+                <div
+                  key={index}
+                  className={`absolute w-72 h-96 lg:w-80 lg:h-[450px] transition-all duration-700 ease-in-out cursor-pointer ${getSlidePosition(index)}`}
+                  onClick={() => goToSlide(index)}
+                  onMouseEnter={() => setIsAutoplay(false)}
+                  onMouseLeave={() => setIsAutoplay(true)}
+                >
+                  <div 
+                    className="w-full h-full bg-cover bg-center rounded-2xl shadow-2xl relative overflow-hidden"
+                    style={{ backgroundImage: `url(${slide.image})` }}
+                  >
+                    {/* Overlay for active slide */}
+                    <div className={`absolute inset-0 bg-black/40 flex flex-col justify-end p-6 transition-opacity duration-500 ${
+                      index === currentSlide ? 'opacity-100' : 'opacity-0'
+                    }`}>
+                      <h2 className="text-white text-2xl font-normal uppercase tracking-wide mb-3">
+                        {slide.title}
+                      </h2>
+                      <p className="text-gray-200 text-sm leading-relaxed mb-4">
+                        {slide.description}
+                      </p>
+                      <a 
+                        href="/download"
+                        className="self-start px-6 py-2 border-2 border-red-500 text-white bg-red-500
+                                 uppercase tracking-wider rounded-full text-sm
+                                 hover:bg-white hover:text-red-500 
+                                 transition-all duration-300"
+                      >
+                        download now
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+
+            {/* Pagination Dots */}
+            <div className="flex justify-center mt-8 space-x-2">
+              {slider.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentSlide 
+                      ? 'bg-red-500 shadow-lg scale-110' 
+                      : 'bg-white border-2 border-red-500 hover:bg-red-100'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-
-        {/* Right Arrow */}
-        <button
-          onClick={nextSlide}
-          className="absolute right-8 z-10 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110"
-        >
-          <ChevronRight className="w-6 h-6 text-[#FE4D4D]" />
-        </button>
       </div>
-
-      {/* Dots Indicator */}
-      <div className="flex justify-center mt-8 gap-2">
-        {Array.from({ length: galleryItems.length - 2 }).map((_, index) => (
-          <button
-            key={index}
-            onClick={() => {
-              setIsAutoScrolling(false);
-              setCurrentIndex(index);
-            }}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex 
-                ? 'bg-[#FE4D4D] scale-125' 
-                : 'bg-gray-300 hover:bg-gray-400'
-            }`}
-          />
-        ))}
-      </div>
-
-      {/* Auto-scroll indicator */}
-      {isAutoScrolling && (
-        <div className="text-center mt-4">
-          <span className="text-sm text-gray-600 bg-white/70 px-3 py-1 rounded-full">
-            Auto-scrolling...
-          </span>
-        </div>
-      )}
     </div>
   );
 };

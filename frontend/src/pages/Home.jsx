@@ -17,6 +17,12 @@ import AppD from '/static/AStoreB.svg';
 import PlayD from '/static/GplayB.svg';
 import Logo from '/static/Logo.svg';
 import UScan from '/static/UScan.svg';
+import g1 from '/static/g1.svg';
+import g2 from '/static/g2.svg';
+import g3 from '/static/g3.svg';
+import g4 from '/static/g4.svg';
+import g5 from '/static/g5.svg';
+import g6 from '/static/g6.svg';
 
 
 {/*
@@ -86,74 +92,84 @@ export default function Home() {
 
       {/* What We Offer Section */}
       <div
-        className="p-10 rounded-[56px] shadow-md mt-3"
-        style={{
-          backgroundImage: `url(/static/Vector3.svg)`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-        }}
+  className="p-10 rounded-[56px] shadow-md mt-3"
+  style={{
+    backgroundImage: `url(/static/Vector3.svg)`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+  }}
+>
+  <div className="text-center">
+    <h2 className="font-montserrat font-semibold text-[40px] mb-2">What We Offer!</h2>
+    <p className="text-[25px] font-sans text-gray-600">
+      Discover a wide range of personalized beauty and grooming services tailored just for you.
+    </p>
+  </div>
+
+  <div className="flex items-center justify-center mt-5">
+    <div className="bg-white rounded-full p-2 w-[460px] h-[70px] shadow-md flex justify-between items-center">
+      <button
+        className={`flex items-center justify-center gap-2 w-[223px] h-[65px] py-2 px-6 rounded-full font-semibold ${
+          activeTab === "Women" ? "bg-[#FF0000] text-white" : "text-gray-700"
+        }`}
+        onClick={() => setActiveTab("Women")}
       >
-        <div className="text-center">
-          <h2 className="font-montserrat font-semibold text-[40px] mb-2">What We Offer!</h2>
-          <p className="text-[25px] font-sans text-gray-600">
-            Discover a wide range of personalized beauty and grooming services tailored just for you.
-          </p>
-        </div>
+        <img
+          src={activeTab === "Women" ? femaleiconw : femaleicon}
+          className="w-10 h-10"
+          alt="Female Icon"
+        />
+        <p className="font-montserrat text-[30px]">Women</p>
+      </button>
+      <button
+        className={`flex items-center justify-center gap-2 w-[223px] h-[65px] py-2 px-6 rounded-full font-semibold ${
+          activeTab === "Men" ? "bg-[#FF0000] text-white" : "text-gray-700"
+        }`}
+        onClick={() => setActiveTab("Men")}
+      >
+        <img
+          src={activeTab === "Men" ? maleiconw : maleicon}
+          className="w-10 h-10"
+          alt="Male Icon"
+        />
+        <p className="font-montserrat text-[30px]">Men</p>
+      </button>
+    </div>
+  </div>
 
-        <div className="flex items-center justify-center mt-5">
-          <div className="bg-white rounded-full p-2 w-[460px] h-[70px] shadow-md flex justify-between items-center">
-            <button
-              className={`flex items-center justify-center gap-2 w-[223px] h-[65px] py-2 px-6 rounded-full font-semibold ${
-                activeTab === "Women" ? "bg-[#FF0000] text-white" : "text-gray-700"
-              }`}
-              onClick={() => setActiveTab("Women")}
-            >
-              <img
-                src={activeTab === "Women" ? femaleiconw : femaleicon}
-                className="w-10 h-10"
-                alt="Female Icon"
-              />
-              <p className="font-montserrat text-[30px]">Women</p>
-            </button>
-            <button
-              className={`flex items-center justify-center gap-2 w-[223px] h-[65px] py-2 px-6 rounded-full font-semibold ${
-                activeTab === "Men" ? "bg-[#FF0000] text-white" : "text-gray-700"
-              }`}
-              onClick={() => setActiveTab("Men")}
-            >
-              <img
-                src={activeTab === "Men" ? maleiconw : maleicon}
-                className="w-10 h-10"
-                alt="Male Icon"
-              />
-              <p className="font-montserrat text-[30px]">Men</p>
-            </button>
-          </div>
-        </div>
-
+  <div
+    className={`mt-8 ${
+      activeTab === "Men" ? "flex justify-center gap-6" : "grid grid-cols-1 sm:grid-cols-3 gap-6"
+    }`}
+  >
+    {services[activeTab].map((service, index) => (
+      <div
+        key={index}
+        className="p-[3px] bg-[#E7E7E7] rounded-[21px] cursor-pointer"
+        style={{ width: "406px", height: "456px" }}
+        onClick={() => window.location.href = "/download"}
+      >
         <div
-          className={`mt-8 ${
-            activeTab === "Men" ? "flex justify-center gap-6" : "grid grid-cols-1 sm:grid-cols-3 gap-6"
-          }`}
+          className="rounded-[21px] shadow-md bg-[#FFFFFF] p-6 font-montserrat text-center flex flex-col justify-between
+          hover:bg-gray-800 hover:bg-opacity-60
+          hover:text-white
+          transition-colors duration-300 ease-in-out"
+          style={{ width: "400px", height: "450px" }}
         >
-          {services[activeTab].map((service, index) => (
-            <div
-              key={index}
-              className="p-[3px] bg-[#E7E7E7] rounded-[21px]"
-              style={{ width: "406px", height: "456px" }}
-            >
-              <div
-                className="rounded-[21px] shadow-md bg-[#FFFFFF] p-6 font-montserrat text-center flex flex-col justify-between"
-                style={{ width: "400px", height: "450px" }}
-              >
-                <img src={service.icon} alt={service.title} className="mx-auto mb-4" />
-                <p className="font-montserrat text-[30px] font-medium mt-auto">{service.title}</p>
-              </div>
-            </div>
-          ))}
+          <img
+            src={service.icon}
+            alt={service.title}
+            className="mx-auto mb-4
+            hover:filter hover:brightness-75
+            transition duration-300 ease-in-out"
+          />
+          <p className="font-montserrat text-[30px] font-medium mt-auto">{service.title}</p>
         </div>
       </div>
+    ))}
+  </div>
+</div>
 
       {/* Refer & Earn Section */}
       <div
@@ -191,20 +207,40 @@ export default function Home() {
 
 
 
-      {/*What Sets us apart Section*/}
-      <div className="bg-[#FFD5D5] border-[#E43844] mr-3 ml-3 mb-3 rounded-[50px] w-[1500px] h-[600px] grid-cols-2"
-      style={{
+      {/* What Sets Us Apart Section */}
+      <div
+        className="bg-[#FFD5D5] border-[#E43844] border-3 mx-3 mb-3 rounded-[50px] w-full max-w-[1500px] h-auto p-6 lg:px-12 grid grid-cols-1 sm:grid-cols-2 gap-4"
+        style={{
           backgroundImage: `url(/static/Vector9.svg)`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-        }}>
-            <h2 className="text-center p-5 align-top font-montserrat text-[50px] font-semibold">What Sets Us Apart</h2>
-            
-            
-
-      
+        }}
+      >
+        <h2 className="col-span-1 sm:col-span-2 text-center p-5 font-montserrat text-[30px] sm:text-[40px] font-semibold">
+          What Sets Us Apart
+        </h2>
+        {/** Images with hover effect */}
+        {[g1, g2, g3, g4, g5, g6].map((src, index) => (
+          <div
+            key={index}
+            className="relative overflow-hidden rounded-lg transform transition-transform duration-300 hover:scale-110 hover:shadow-2xl hover:z-10">
+            <img
+              src={src}
+              alt={`Image ${index + 1}`}
+              className="w-full h-auto rounded-lg"
+              style={{
+                maxWidth: "98%",
+                maxHeight: "98%",
+                margin: "auto",
+              }}
+            />
+          </div>
+        ))}
       </div>
+
+
+
       {/*------------------------------------------------------------------------------------------------------------------------------------- */}
 
       {/* App Download Section */}
