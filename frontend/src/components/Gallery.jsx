@@ -133,7 +133,7 @@ const Gallery = () => {
               </span>
               <h1 className="text-6xl lg:text-7xl font-bold leading-tight mt-2 mb-6">
                 <span className="bg-gradient-to-r from-red-500 to-black bg-clip-text text-transparent">
-                  Salon Partners
+                  Home Salon Partners
                 </span>
               </h1>
               <div className="w-24 h-1 bg-red-500 mb-8"></div>
@@ -185,7 +185,7 @@ const Gallery = () => {
                 {slider.map((slide, index) => (
                   <div
                     key={index}
-                    className={`absolute w-72 h-96 lg:w-80 lg:h-[450px] transition-all duration-700 ease-in-out cursor-pointer ${getSlidePosition(index)}`}
+                    className={`absolute w-72 h-96 lg:w-80 lg:h-[450px] transition-all duration-400 ease-in-out cursor-pointer ${getSlidePosition(index)}`}
                     onClick={() => goToSlide(index)}
                     onMouseEnter={() => setIsAutoplay(false)}
                     onMouseLeave={() => setIsAutoplay(true)}
@@ -195,7 +195,7 @@ const Gallery = () => {
                       style={{ backgroundImage: `url(${slide.image})` }}
                     >
                       {/* Overlay for active slide */}
-                      <div className={`absolute inset-0 bg-black/5 flex flex-col justify-end p-6 transition-opacity duration-500 ${
+                      <div className={`absolute inset-0 bg-black/5 flex flex-col justify-end p-6 transition-opacity duration-400 ${
                         index === currentSlide ? 'opacity-100' : 'opacity-0'
                       }`}>
                         <div className="flex items-center gap-3 mb-2">
@@ -218,7 +218,7 @@ const Gallery = () => {
                           className="self-start px-6 py-2 border-2 border-red-500 text-white bg-red-500
                                    uppercase tracking-wider rounded-full text-sm
                                    hover:bg-white hover:text-red-500 
-                                   transition-all duration-300"
+                                   transition-all duration-400"
                         >
                           book appointment
                         </a>
@@ -234,7 +234,7 @@ const Gallery = () => {
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    className={`w-3 h-3 rounded-full transition-all duration-400 ${
                       index === currentSlide 
                         ? 'bg-red-500 shadow-lg scale-110' 
                         : 'bg-white border-2 border-red-500 hover:bg-red-100'

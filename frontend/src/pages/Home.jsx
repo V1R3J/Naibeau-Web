@@ -92,7 +92,7 @@ export default function Home() {
 
       {/* What We Offer Section */}
       <div
-        className="p-10 rounded-[56px] shadow-md mt-3"
+        className="p-10 rounded-[56px] shadow-lg mt-3"
         style={{
           backgroundImage: `url(/static/Vector3.svg)`,
           backgroundSize: "cover",
@@ -146,15 +146,15 @@ export default function Home() {
           {services[activeTab].map((service, index) => (
             <div
               key={index}
-              className="p-[3px] bg-[#E7E7E7] rounded-[21px] cursor-pointer hover:"
+              className="cursor-pointer transform transition-all duration-300 ease-in-out hover:scale-110"
               style={{ width: "406px", height: "456px" }}
               onClick={() => window.location.href = "/download"}
             >
               <div
                 className="rounded-[21px] shadow-md bg-[#FFFFFF] p-6 font-montserrat text-center flex flex-col justify-between
-                hover:bg-[#FFD3D3] hover:bg-opacity-60
-                hover:text-white
-                transition-colors duration-300 ease-in-out"
+                hover:bg-[#d49a9a]/50 -z-0 hover:border-red-500
+                hover:text-black hover:shadow-xl
+                transition-all duration-300 ease-in-out"
                 style={{ width: "400px", height: "450px" }}
               >
                 <img
@@ -170,7 +170,6 @@ export default function Home() {
           ))}
         </div>
       </div>
-
       {/* Refer & Earn Section */}
       <div
         className="flex justify-between items-center ml-4 mr-5 p-8 rounded-[56px] text-white mt-10"

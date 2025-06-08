@@ -1,81 +1,116 @@
-import { Link, NavLink } from 'react-router-dom';
-import ArrowWhite from '/static/ArrowWhite.svg';
-import ArrowRed from '/static/ArrowRed.svg';
-
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import ArrowWhite from "/static/ArrowWhite.svg";
+import ArrowRed from "/static/ArrowRed.svg";
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <header className="bg-white shadow-md sticky  z-50">
-      <div className="pt-5 pr-5 pl-5 pb-5 flex-wrap flex items-center justify-between px-5 py-3 bg-white shadow-sm">
+    <header className="bg-white shadow-md top-0 z-50">
+      <div className="flex flex-wrap items-center justify-between px-5 py-3 bg-white shadow-sm">
         {/* Logo */}
         <Link to="/">
-          <img
-            src="/static/Logo.svg"
-            alt="Naibeau Logo"
-            className="w-145 h-30"
-          />
+          <img src="/static/Logo.svg" alt="Naibeau Logo" className="w-36 h-8" />
         </Link>
 
-        {/* Navigation Buttons */}
-        <nav>
-          <ul className="flex gap-3 items-center">
+        {/* Hamburger for small and medium screens only */}
+        <button
+          className="block lg:hidden text-black text-3xl"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          &#9776;
+        </button>
+
+        {/* Navigation for large screens and up */}
+        <nav className="hidden lg:flex gap-3 items-center">
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) =>
+              `text-lg border-2 border-red-400 font-medium rounded-[30px] px-4 py-2 transition relative z-10 ${
+                isActive
+                  ? "bg-red-600 text-white"
+                  : "bg-white text-red-600 hover:bg-red-600 hover:text-white"
+              }`
+            }
+          >
+            Home
+          </NavLink>
+
+          <NavLink
+            to="/partner"
+            className={({ isActive }) =>
+              `text-lg border-2 border-red-400 font-medium rounded-[30px] px-4 py-2 transition relative z-10 ${
+                isActive
+                  ? "bg-red-600 text-white"
+                  : "bg-white text-red-600 hover:bg-red-600 hover:text-white"
+              }`
+            }
+          >
+            Be Our Partner
+          </NavLink>
+
+          <NavLink
+            to="/download"
+            className={({ isActive }) =>
+              `text-lg border-2 border-red-400 font-medium rounded-[30px] px-4 py-2 flex items-center gap-2 transition relative z-10 ${
+                isActive
+                  ? "bg-red-600 text-white"
+                  : "bg-white text-red-600 hover:bg-red-600 hover:text-white"
+              }`
+            }
+          >
+            {({ isActive }) => (
+              <>
+                Download The App
+                <img
+                  src={isActive ? ArrowWhite : ArrowRed}
+                  alt="Download icon"
+                  className="w-5 h-5"
+                />
+              </>
+            )}
+          </NavLink>
+        </nav>
+      </div>
+
+      {/* Mobile Menu: simple vertical links - show only when open and on smaller than large */}
+      {isMenuOpen && (
+        <nav className="lg:hidden bg-white shadow-md border-t border-gray-200 px-5 py-4">
+          <ul className="flex flex-col gap-3">
             <li>
-              <NavLink 
+              <Link
                 to="/"
-                end
-                className={({ isActive }) =>
-                  `text-lg border-2 border-red-400 font-medium pt-3 pr-3 pl-3 pb-3 px-4 py-2 rounded-[30px] transition relative z-10 ${
-                    isActive
-                      ? 'bg-red-600 text-white'
-                      : 'bg-white text-red-600 hover:bg-red-600 hover:text-white'
-                  }`
-                }
+                onClick={() => setIsMenuOpen(false)}
+                className="text-red-600 text-lg font-medium hover:text-red-800"
               >
                 Home
-              </NavLink>
+              </Link>
             </li>
-
             <li>
-              <NavLink 
+              <Link
                 to="/partner"
-                className={({ isActive }) => 
-                  `text-lg border-2 border-red-400 font-medium pt-3 pl-3 pr-3 pb-3 px-4 py-2 rounded-[30px] transition relative z-10 ${
-                    isActive
-                      ? 'bg-red-600 text-white'
-                      : 'bg-white text-red-600 hover:bg-red-600 hover:text-white'
-                  }`
-                }
+                onClick={() => setIsMenuOpen(false)}
+                className="text-red-600 text-lg font-medium hover:text-red-800"
               >
                 Be Our Partner
-              </NavLink>
+              </Link>
             </li>
-
             <li>
-              <NavLink 
+              <Link
                 to="/download"
-                className={({ isActive }) => 
-                  `text-lg border-2 border-red-400 font-medium pt-3 pl-3 pr-3 pb-3 px-4 py-2 rounded-[30px] transition flex items-center gap-3 relative z-10 ${
-                    isActive
-                      ? 'bg-red-600 text-white'
-                      : 'bg-white text-red-600 hover:bg-red-600 hover:text-white'
-                  }`
-                }
+                onClick={() => setIsMenuOpen(false)}
+                className="text-red-600 text-lg font-medium hover:text-red-800 flex items-center gap-2"
               >
-                {({ isActive }) => (
-                  <>
-                    Download The App
-                    <img
-                      src={isActive ? ArrowWhite : ArrowRed}
-                      alt="Download icon"
-                      className="w-5 h-5"
-                    />
-                  </>
-                )}
-              </NavLink>
+                Download The App
+                <img src={ArrowRed} alt="Download icon" className="w-5 h-5" />
+              </Link>
             </li>
           </ul>
         </nav>
-      </div>
+      )}
     </header>
   );
 }
