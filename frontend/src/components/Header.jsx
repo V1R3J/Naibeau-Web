@@ -11,7 +11,7 @@ export default function Header() {
       <div className="flex flex-wrap items-center justify-between px-5 py-3 bg-white shadow-sm">
         {/* Logo */}
         <Link to="/">
-          <img src="/static/Logo.svg" alt="Naibeau Logo" className="w-36 h-8" />
+          <img src="/static/Logo.svg" alt="Naibeau Logo" className="sm:w-36 sm:h-8 w-25 h-5" />
         </Link>
 
         {/* Hamburger for small and medium screens only */}
@@ -105,7 +105,7 @@ export default function Header() {
                 className="text-red-600 text-lg font-medium hover:text-red-800 flex items-center gap-2"
               >
                 Download The App
-                <img src={ArrowRed} alt="Download icon" className="w-5 h-5" />
+                <img src={ArrowRed} alt="Download icon" className="w-3 h-3 items-center" />
               </Link>
             </li>
           </ul>

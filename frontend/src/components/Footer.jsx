@@ -11,7 +11,7 @@ export default function Footer() {
         {/* Logo & About */}
         <div className="max-w-md">
           <Link to="/">
-            <img src={LogoW} alt="Naibeau Logo" className="w-36 mb-4" />
+            <img src={LogoW} alt="Naibeau Logo" className="text-left sm:w-36 sm:h-8 w-25 h-5 mb-4" />
           </Link>
           <p className="text-base text-gray-300 leading-relaxed">
             Naibeau is your go-to app for seamless beauty and wellness bookings. We connect you with top professionals and services, ensuring a premium and convenient experience tailored to your needs.
@@ -41,12 +41,12 @@ export default function Footer() {
         {/* Contact Info */}
         <div>
           <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
-          <p className="flex items-center gap-2 mb-2 text-gray-300">
+          <a href="mailto:support@naibeau.com" className="flex items-center gap-2 mb-2 text-gray-300">
             <FaEnvelopeOpen className="text-red-600" /> support@naibeau.com
-          </p>
-          <p className="flex items-center gap-2 mb-4 text-gray-300">
+          </a>
+          <a href="tel: 92271 77657" className="flex items-center gap-2 mb-4 text-gray-300">
             <FaPhone className="text-red-600" /> +91 92271 77657
-          </p>
+          </a>
         </div>
       </div>
 
@@ -62,7 +62,7 @@ export default function Footer() {
           <a href="https://www.linkedin.com/company/naibeau/" aria-label="LinkedIn" className="hover:text-white"><FaLinkedin /></a>
         </div>
         <p className="text-sm text-gray-400 text-center md:text-right">
-          Naiplus Solutions pvt. ltd. &copy; 2024. All rights reserved.
+          Naiplus Solutions pvt. ltd. &copy; 2025. All rights reserved.
         </p>
       </div>
     </footer>
