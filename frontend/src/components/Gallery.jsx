@@ -63,13 +63,13 @@ const Gallery = () => {
     }
   ];
 
-  // Autoplay functionality
+  // Autoplay functionality - reduced to 3 seconds
   useEffect(() => {
     if (!isAutoplay) return;
     
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slider.length);
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [isAutoplay, slider.length]);
@@ -128,15 +128,15 @@ const Gallery = () => {
 
   const renderExpertiseBadges = (expertiseArray) => {
     return (
-      <div className="flex items-center gap-1 flex-wrap">
+      <div className="flex items-center gap-1 flex-wrap justify-start">
         {expertiseArray.map((expertise, index) => (
-          <div key={index} className="flex items-center gap-1 bg-red-500/90 px-1.5 py-0.5 rounded-full">
+          <div key={index} className="flex items-center gap-1 bg-red-500/90 px-1.5 py-0.5 rounded-full shrink-0">
             <img 
               src={expertise === 'makeup' ? '/static/makeupicon.svg' : '/static/salonicon.svg'}
               alt={expertise === 'makeup' ? 'Makeup Expert' : 'Salon Expert'}
               className="w-2.5 h-2.5 sm:w-3 sm:h-3 filter brightness-0 invert"
             />
-            <span className="text-white text-xs font-bold capitalize">
+            <span className="text-white text-xs font-bold capitalize whitespace-nowrap">
               {expertise === 'makeup' ? 'Makeup' : 'Salon'}
             </span>
           </div>
@@ -264,7 +264,7 @@ const Gallery = () => {
                               <h2 className="text-white text-xs sm:text-sm lg:text-base font-bold truncate">
                                 {slide.title}
                               </h2>
-                              <div className="flex items-center gap-1 bg-blue-500/90 px-1.5 py-0.5 rounded-full">
+                              <div className="flex items-center gap-1 bg-blue-500/90 px-1.5 py-0.5 rounded-full shrink-0">
                                 <i className="fas fa-certificate text-white text-xs"></i>
                                 <span className="text-white text-xs font-bold">
                                   {slide.experience}
@@ -272,9 +272,9 @@ const Gallery = () => {
                               </div>
                             </div>
                             
-                            {/* Stars and Expertise Row */}
-                            <div className= "flex items-center justify-between mb-1 sm:mb-1.5">
-                              {/* Mobile: Single star + rating, Desktop: All stars */}
+                            {/* Stars and Expertise Row - Mobile: Stacked, Desktop: Side by side */}
+                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1 sm:mb-1.5 gap-1">
+                              {/* Rating Section */}
                               <div className="flex items-center gap-1">
                                 <div className="sm:hidden flex items-center gap-1">
                                   <i className="fas fa-star text-yellow-400 text-xs"></i>
@@ -290,7 +290,7 @@ const Gallery = () => {
                                 </div>
                               </div>
                               
-                              {/* Multiple Expertise Badges */}
+                              {/* Expertise Badges - Left aligned on mobile */}
                               {renderExpertiseBadges(slide.expertise)}
                             </div>
 
@@ -300,7 +300,7 @@ const Gallery = () => {
                             </p>
                             
                             {/* Compact Book Now Button */}
-                            <button 
+                            <button href="/download"
                               className="w-full px-2 py-1.5 sm:py-2
                                        border border-red-500 text-white bg-red-500 uppercase 
                                        tracking-wider rounded-lg text-xs

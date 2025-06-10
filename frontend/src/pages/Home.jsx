@@ -29,8 +29,8 @@ export default function Home() {
 
   const services = {
     Women: [
-      { icon: SpaIcon, title: "Spa Services" },
       { icon: SalonIcon, title: "Salon Services" },
+      { icon: SpaIcon, title: "Spa Services" },
       { icon: MakeupIcon, title: "Makeup Services" },
     ],
     Men: [
