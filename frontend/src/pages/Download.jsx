@@ -52,7 +52,7 @@ export default function Download() {
       <div className="flex flex-col items-center text-center py-8 sm:py-9 md:py-10 mt-8 sm:mt-9 md:mt-10 mb-8 sm:mb-9 md:mb-10 px-4 sm:px-6 md:px-8">
         <div className="relative w-full max-w-[400px] md:max-w-[480px] mb-6 sm:mb-7 md:mb-8">
           <h2 className="text-[22px] sm:text-[26px] md:text-[30px] lg:text-[35px] font-semibold font-montserrat mb-3">
-            DOWNLOAD THE APP
+            Download for iOS/Android.
           </h2>
           <img
             src={Underline}
@@ -63,7 +63,7 @@ export default function Download() {
         <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 w-full max-w-[500px] md:max-w-[600px] px-2">
           <a
             href="https://play.google.com/store/apps/details?id=com.naibeau_user"
-            className="rounded-[35px] sm:rounded-[40px] md:rounded-[45px] flex items-center gap-3 sm:gap-4 md:gap-5 px-4 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 border-2 border-black hover:bg-red-400 hover:text-white transition-all duration-300 justify-center group"
+            className="rounded-[35px] sm:rounded-[40px] md:rounded-[45px] flex items-center gap-3 sm:gap-4 md:gap-5 px-4 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 border-2 border-black hover:scale-110 hover:shadow-2xl transform transition-transform duration-300 hover:z-10 justify-center"
           >
             <img 
               src={PlayD} 
@@ -71,12 +71,12 @@ export default function Download() {
               className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 flex-shrink-0" 
             />
             <span className="font-montserrat text-[16px] xs:text-[18px] sm:text-[20px] md:text-[22px] lg:text-[28px] xl:text-[35px] font-normal text-center">
-              Get it on play store
+              Get it on Google Play
             </span>
           </a>
           <a
             href="https://apps.apple.com/in/app/naibeau/id6743757201"
-            className="rounded-[35px] sm:rounded-[40px] md:rounded-[45px] flex items-center gap-3 sm:gap-4 md:gap-5 px-4 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 border-2 border-black hover:bg-red-400 hover:text-white transition-all duration-300 justify-center group"
+            className="rounded-[35px] sm:rounded-[40px] md:rounded-[45px] flex items-center gap-3 sm:gap-4 md:gap-5 px-4 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 border-2 border-black hover:scale-110 hover:shadow-2xl transform transition-transform duration-00 hover:z-10 justify-center"
           >
             <img 
               src={AppD} 

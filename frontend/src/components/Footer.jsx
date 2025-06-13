@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
-import { FaInstagram, FaFacebook, FaWhatsapp, FaLinkedin, FaPhone, FaEnvelopeOpen } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaWhatsapp, FaLinkedin, FaPhone, FaEnvelopeOpen, FaHome, FaMapMarked, FaMapMarker, FaMapMarkerAlt, FaMapMarkedAlt } from 'react-icons/fa';
 import LogoW from '/static/LogoW.svg';
+import AppD from '/static/AStoreB.svg';
+import PlayD from '/static/GplayB.svg';
 
 export default function Footer() {
   return (
@@ -41,13 +43,27 @@ export default function Footer() {
         {/* Contact Info */}
         <div>
           <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
-          <a href="mailto:support@naibeau.com" className="flex items-center gap-2 mb-2 text-gray-300">
+          <a href="mailto:support@naibeau.com" className="flex items-center gap-2 mb-4 text-gray-300">
             <FaEnvelopeOpen className="text-red-600" /> support@naibeau.com
           </a>
           <a href="tel: 92271 77657" className="flex items-center gap-2 mb-4 text-gray-300">
             <FaPhone className="text-red-600" /> +91 92271 77657
           </a>
+          <a href="https://maps.app.goo.gl/oaXKcqGVD9zuuL2HA" className="flex items-center gap-2 mb-4 text-gray-300 text-[15px]">
+            <FaMapMarkedAlt className="text-red-600 h-[20px] w-[20px]"/> 
+            Office 4, Cradle, EDII, Gandhinagar-Ahmedabad Road, <br/> Near Apollo Hospital, Bhat, Ahmedabad, Gujarat 382428
+          </a>
         </div>
+        <h2>Download the App</h2>
+        {/* App Download Buttons */}
+        <div className="flex gap-4">
+          <a href="https://apps.apple.com/in/app/naibeau/id6743757201" className="cursor-pointer">
+            <img src={AppD} alt="App Store" className="h-[90px] w-[90px]" />
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.naibeau_user" className="cursor-pointer">
+            <img src={PlayD} alt="Google Play" className="h-[90px] w-[90px]" />
+          </a>
+        </div>          
       </div>
 
       {/* Divider */}
