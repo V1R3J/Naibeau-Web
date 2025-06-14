@@ -4,64 +4,65 @@ const Gallery = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoplay, setIsAutoplay] = useState(true);
 
-  const slider = [
+ const slider = [
     {
-      title: "Priya S.",
-      description: "Expert in traditional bridal makeup and contemporary styling.",
-      image: "/static/image1.png",
-      rating: 4.8,
-      experience: "5+ yrs",
-      expertise: ["makeup"] // makeup expert
+        title: "Arjun M.",
+        description: "Barber and grooming specialist with expertise in classic and modern styles.",
+        image: "/static/image1.png",
+        rating: 4.8,
+        experience: "5+ yrs",
+        expertise: ["salon"] // male grooming expert
     },
     {
-      title: "Ananya P.", 
-      description: "Master of hair artistry and color transformation.",
-      image: "/static/image2.png",
-      rating: 4.6,
-      experience: "8+ yrs",
-      expertise: ["salon"] // salon expert
+        title: "Ananya P.", 
+        description: "Master of hair artistry and color transformation.",
+        image: "/static/image2.png",
+        rating: 4.6,
+        experience: "8+ yrs",
+        expertise: ["salon"] // salon expert
     },
     {
-      title: "Kavya R.",
-      description: "Skincare specialist and facial expert offering rejuvenating treatments.", 
-      image: "/static/image3.png",
-      rating: 4.9,
-      experience: "12+ yrs",
-      expertise: ["salon", "makeup"] // both salon and makeup expert
+        title: "Rahul V.",
+        description: "Expert in men's skincare and beard styling offering a rejuvenating experience.", 
+        image: "/static/image3.png",
+        rating: 4.9,
+        experience: "12+ yrs",
+        expertise: ["salon"] // men's skincare and grooming expert
     },
     {
-      title: "Meera G.",
-      description: "Professional nail artist and spa therapist.",
-      image: "/static/image4.png",
-      rating: 4.7,
-      experience: "6+ yrs",
-      expertise: ["salon"] // salon expert
+        title: "Vikram K.",
+        description: "Professional barber specializing in precision cuts and fades.",
+        image: "/static/image4.png",
+        rating: 4.7,
+        experience: "6+ yrs",
+        expertise: ["salon"] // barber and styling expert
     },
     {
-      title: "Aishwarya S.",
-      description: "Celebrity makeup artist specializing in photoshoot and event makeup.",
-      image: "/static/image5.png",
-      rating: 4.5,
-      experience: "10+ yrs",
-      expertise: ["makeup", "salon"], // both makeup and salon expert
+        title: "Aishwarya S.",
+        description: "Celebrity makeup artist specializing in photoshoot and event makeup.",
+        image: "/static/image5.png",
+        rating: 4.5,
+        experience: "10+ yrs",
+        expertise: ["makeup", "salon"], // both makeup and salon expert
     },
     {
-      title: "Sneha M.",
-      description: "Eyebrow and eyelash extension specialist with precision artistry.",
-      image: "/static/image6.png",
-      rating: 4.8,
-      experience: "7+ yrs",
-      expertise: ["makeup"] // makeup expert
+        title: "Sneha M.",
+        description: "Eyebrow and eyelash extension specialist with precision artistry.",
+        image: "/static/image6.png",
+        rating: 4.8,
+        experience: "7+ yrs",
+        expertise: ["makeup"] // makeup expert
     },
     {
-      title: "Riya K.",
-      description: "Advanced skincare consultant and anti-aging treatment expert.",
-      image: "/static/image7.png",
-      rating: 4.9,
-      experience: "15+ yrs",
-      expertise: ["makeup"] // makeup expert
+        title: "Riya K.",
+        description: "Advanced skincare consultant and anti-aging treatment expert.",
+        image: "/static/image7.png",
+        rating: 4.9,
+        experience: "15+ yrs",
+        expertise: ["makeup"] // makeup expert
     }
-  ];
+];
+
 
   // Autoplay functionality - reduced to 3 seconds
   useEffect(() => {

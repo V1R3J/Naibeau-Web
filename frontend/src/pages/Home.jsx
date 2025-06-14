@@ -42,121 +42,123 @@ export default function Home() {
   return (
     <div className="px-2 sm:px-4">
       {/* Hero Section */}
-      <div
-        className="mt-3 max-w-[1500px] w-full h-auto mx-auto rounded-[32px] sm:rounded-[56px] flex flex-col lg:flex-row justify-between items-center p-4 sm:p-6 lg:p-0"
-        style={{
-          backgroundImage: `url(/static/Vector5.svg)`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="mt-5 mx-4 sm:mx-8 lg:ml-20 text-center lg:text-left order-2 lg:order-1">
-          <h1 className="text-[28px] xs:text-[35px] sm:text-[45px] lg:text-[55px] font-bold leading-tight mt-2">
-            Get Your Vibe With <br />
-            The Right <span className="bg-gradient-to-r from-red-400 via-red-600 to-black/60 bg-clip-text text-transparent"> Home Salon Partner! </span>
-          </h1>
-          <p className="text-[#FF0000] font-semibold text-[20px] sm:text-lg mt-4">Secure, Safe, Trustable</p>
-          <p className=" text-gray-600 text-[15px] sm:text-[20px] sm:text-md mt-2 max-w-[500px] mx-auto lg:mx-0 ">
-            Get <span className="font-bold text-[#FF0000] ">Naibeau</span> for your next booking. We are
-            here to help you get your next salon service smooth and convenient.
-          </p>
-          <div className="mt-6 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-center md:items-center  ">
-            <NavLink
-              to="/download"
-              className="bg-[#FF0000] text-white py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-lg hover:bg-[#e60000] w-full sm:w-auto text-center"
-            >
-              Download The App
-            </NavLink>
-            <NavLink
-              to="/partner"
-              className="border border-[#FF0000] text-[#FF0000] py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-lg hover:bg-[#FFEFEF] w-full sm:w-auto text-center"
-            >
-              Be Our Partner
-            </NavLink>
-          </div>
+    <div
+      className="mt-3 max-w-[1500px] w-full lg:h-[630px] h-auto mx-auto rounded-[32px] sm:rounded-[56px] flex flex-col lg:flex-row justify-between items-center p-4 sm:p-6 lg:p-0"
+      style={{
+        backgroundImage: `url(/static/Vector5.svg)`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="mt-5 mx-4 sm:mx-8 lg:ml-20 text-center lg:text-left order-2 lg:order-1">
+        <h1 className="text-[28px] xs:text-[35px] sm:text-[45px] lg:text-[55px] font-bold leading-tight mt-2">
+          Get Your Vibe With <br />
+          The Right <span className="bg-gradient-to-r from-red-400 via-red-600 to-black/60 bg-clip-text text-transparent"> Home Salon Partner! </span>
+        </h1>
+        <p className="text-[#FF0000] font-semibold text-[20px] sm:text-lg mt-4">Secure, Safe, Trustable</p>
+        <p className="text-gray-600 text-[15px] sm:text-[20px] sm:text-md mt-2 max-w-[500px] mx-auto lg:mx-0">
+          Get <span className="font-bold text-[#FF0000]">Naibeau</span> for your next booking. We are
+          here to help you get your next salon service smooth and convenient.
+        </p>
+        <div className="mt-6 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-center md:items-center">
+          <NavLink
+            to="/download"
+            className="bg-[#FF0000] text-white py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-lg hover:bg-[#e60000] w-full sm:w-auto text-center"
+          >
+            Download The App
+          </NavLink>
+          <NavLink
+            to="/partner"
+            className="border border-[#FF0000] text-[#FF0000] py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-lg hover:bg-[#FFEFEF] w-full sm:w-auto text-center"
+          >
+            Be Our Partner
+          </NavLink>
         </div>
-        <img 
-          src={HeroImage} 
-          alt="Hero" 
-          className="w-full max-w-[300px] xs:max-w-[350px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[650px] h-auto mx-4 sm:mx-8 lg:mr-5 order-3 -mb-3 sm:mb-0 lg:order-2" 
-        />
       </div>
+      <img 
+        src={HeroImage} 
+        alt="Hero" 
+        className="w-full max-w-[300px] xs:max-w-[350px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[650px] lg:max-h-[600px] xs:max-h-[300px] sm:-mb-5 mx-4 sm:mx-8 lg:mr-0 order-3 lg:order-2 object-cover rounded-[32px] sm:rounded-[56px]"
+      />
+    </div>
+
 
       {/* What We Offer Section */}
-      <div
-        className="p-4 sm:p-6 lg:p-10 rounded-[32px] sm:rounded-[56px] shadow-lg mt-4 ml-3 mr-3 mx-auto max-w-[1500px]"
-        style={{
-          backgroundImage: `url(/static/Vector3.svg)`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="text-center">
-          <h2 className="mt-3 p-3 font-montserrat font-semibold text-[25px] sm:text-[35px] lg:text-[40px] mb-2">What We Offer!</h2>
-          <p className="text-[16px] sm:text-[20px] lg:text-[25px] font-sans text-gray-600 max-w-[800px] mx-auto">
-            Discover a wide range of personalized beauty and grooming services tailored just for you.
-          </p>
-        </div>
+    <div
+      className="p-4 sm:p-6 lg:p-6 rounded-[32px] sm:rounded-[56px] shadow-lg mt-3 ml-1 mr-1 mx-auto max-w-[1500px] h-auto  lg:max-h-[770px]"
+      style={{
+        backgroundImage: `url(/static/Vector3.svg)`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="text-center">
+        <h2 className="mt-3 p-3 font-montserrat font-semibold text-[28px] sm:text-[35px] lg:text-[42px] mb-3">What We Offer!</h2>
+        <p className="text-[16px] sm:text-[18px] lg:text-[22px] font-sans text-gray-600 max-w-[800px] mx-auto">
+          Discover a wide range of personalized beauty and grooming services tailored just for you.
+        </p>
+      </div>
 
-        <div className="flex items-center justify-center mt-5">
-          <div className="bg-white rounded-full p-2 w-full max-w-[460px] h-[60px] sm:h-[70px] shadow-md flex justify-between items-center mx-4">
-            <button
-          className={`flex items-center justify-center gap-1 sm:gap-2 flex-1 h-[40px] sm:h-[50px] md:h-[65px] py-2 px-2 sm:px-6 rounded-full font-semibold ${
-            activeTab === "Women" ? "bg-[#FF0000] text-white" : "text-gray-700"
-          }`}
-          onClick={() => setActiveTab("Women")}
-        >
-          <img
-            src={activeTab === "Women" ? femaleiconw : femaleicon}
-            className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
-            alt="Female Icon"
-          />
-          <p className="font-montserrat text-[14px] sm:text-[18px] md:text-[24px] lg:text-[30px]">Women</p>
-        </button>
-        <button
-          className={`flex items-center justify-center gap-1 sm:gap-2 flex-1 h-[40px] sm:h-[50px] md:h-[65px] py-2 px-2 sm:px-6 rounded-full font-semibold ${
-            activeTab === "Men" ? "bg-[#FF0000] text-white" : "text-gray-700"
-          }`}
-          onClick={() => setActiveTab("Men")}
-        >
-          <img
-            src={activeTab === "Men" ? maleiconw : maleicon}
-            className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
-            alt="Male Icon"
-          />
-          <p className="font-montserrat text-[14px] sm:text-[18px] md:text-[24px] lg:text-[30px]">Men</p>
-        </button>
-          </div>
-        </div>
-
-        <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6">
-          {services[activeTab].map((service, index) => (
-            <div
-              key={index}
-              className="cursor-pointer transform transition-all duration-300 ease-in-out hover:scale-110 mx-auto"
-              onClick={() => window.location.href = "/download"}
-            >
-              <div
-                className="rounded-[21px] shadow-md bg-[#FFFFFF] p-4 sm:p-6 font-montserrat text-center flex flex-col justify-between
-                hover:bg-[#d49a9a]/50 -z-0 hover:border-red-500
-                hover:text-black hover:shadow-xl
-                transition-all duration-300 ease-in-out w-[280px] h-[320px] sm:w-[350px] sm:h-[400px] lg:w-[400px] lg:h-[450px]"
-              >
-                <img
-                  src={service.icon}
-                  alt={service.title}
-                  className="mx-auto mb-4 w-auto h-auto max-h-[200px] sm:max-h-[280px] lg:max-h-[350px]
-                  hover:filter hover:brightness-75
-                  transition duration-300 ease-in-out"
-                />
-                <p className="font-montserrat text-[20px] sm:text-[25px] lg:text-[30px] font-medium mt-auto">{service.title}</p>
-              </div>
-            </div>
-          ))}
+      <div className="flex items-center justify-center mt-6">
+        <div className="bg-white rounded-full p-2 w-full max-w-[450px] h-[55px] sm:h-[65px] shadow-md flex justify-between items-center mx-4">
+          <button
+            className={`flex items-center justify-center gap-1 sm:gap-2 flex-1 h-[40px] sm:h-[50px] py-2 px-3 sm:px-5 rounded-full font-semibold ${
+              activeTab === "Women" ? "bg-[#FF0000] text-white" : "text-gray-700"
+            }`}
+            onClick={() => setActiveTab("Women")}
+          >
+            <img
+              src={activeTab === "Women" ? femaleiconw : femaleicon}
+              className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7"
+              alt="Female Icon"
+            />
+            <p className="font-montserrat text-[14px] sm:text-[16px] lg:text-[18px]">Women</p>
+          </button>
+          <button
+            className={`flex items-center justify-center gap-1 sm:gap-2 flex-1 h-[40px] sm:h-[50px] py-2 px-3 sm:px-5 rounded-full font-semibold ${
+              activeTab === "Men" ? "bg-[#FF0000] text-white" : "text-gray-700"
+            }`}
+            onClick={() => setActiveTab("Men")}
+          >
+            <img
+              src={activeTab === "Men" ? maleiconw : maleicon}
+              className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7"
+              alt="Male Icon"
+            />
+            <p className="font-montserrat text-[14px] sm:text-[16px] lg:text-[18px]">Men</p>
+          </button>
         </div>
       </div>
+
+      <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8">
+        {services[activeTab].map((service, index) => (
+          <div
+            key={index}
+            className="cursor-pointer transform transition-all duration-300 ease-in-out hover:scale-110 mx-auto"
+            onClick={() => window.location.href = "/download"}
+          >
+            <div
+              className="rounded-[24px] shadow-lg bg-[#FFFFFF] p-4 sm:p-6 lg:p-7 font-montserrat text-center flex flex-col justify-between
+              hover:bg-[#d49a9a]/50 -z-0  border-2 border-transparent
+              hover:text-black hover:shadow-2xl
+              transition-all duration-300 ease-in-out 
+              w-[280px] h-[320px] sm:w-[320px] sm:h-[380px] lg:w-[380px] lg:h-[420px]"
+            >
+              <img
+                src={service.icon}
+                alt={service.title}
+                className="mx-auto mb-3 w-auto h-auto max-h-[200px] sm:max-h-[250px] lg:max-h-[300px]
+                hover:filter hover:brightness-75
+                transition duration-300 ease-in-out object-contain"
+              />
+              <p className="font-montserrat text-[18px] sm:text-[22px] lg:text-[26px] font-semibold mt-auto text-gray-800">{service.title}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
 
       {/* Refer & Earn Section */}
       <div

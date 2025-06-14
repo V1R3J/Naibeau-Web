@@ -6,7 +6,7 @@ import PlayD from '/static/GplayB.svg';
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-black text-white px-10 py-12">
+    <footer className="w-full bg-black text-white px-10 py-12 h-auto">
       {/* Top Section */}
       <div className="max-w-screen-xl  mx-auto flex flex-col md:flex-row justify-between gap-10 flex-wrap">
         
@@ -50,20 +50,10 @@ export default function Footer() {
             <FaPhone className="text-red-600" /> +91 92271 77657
           </a>
           <a href="https://maps.app.goo.gl/oaXKcqGVD9zuuL2HA" className="flex items-center gap-2 mb-4 text-gray-300 text-[15px]">
-            <FaMapMarkedAlt className="text-red-600 h-[20px] w-[20px]"/> 
-            Office 4, Cradle, EDII, Gandhinagar-Ahmedabad Road, <br/> Near Apollo Hospital, Bhat, Ahmedabad, Gujarat 382428
+            <FaMapMarkedAlt className="text-red-600 sm:h-[20px] sm:w-[20px] h-[25px] w-[25px]"/> 
+            Office 4, Cradle, EDII, Gandhinagar-Ahmedabad Road, <br />Near Apollo Hospital, Bhat, Ahmedabad, Gujarat 382428
           </a>
         </div>
-        <h2>Download the App</h2>
-        {/* App Download Buttons */}
-        <div className="flex gap-4">
-          <a href="https://apps.apple.com/in/app/naibeau/id6743757201" className="cursor-pointer">
-            <img src={AppD} alt="App Store" className="h-[90px] w-[90px]" />
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.naibeau_user" className="cursor-pointer">
-            <img src={PlayD} alt="Google Play" className="h-[90px] w-[90px]" />
-          </a>
-        </div>          
       </div>
 
       {/* Divider */}
