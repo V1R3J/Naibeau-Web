@@ -57,59 +57,62 @@ export default function Home() {
             Get Your Vibe With <br />
             The Right <span className="bg-gradient-to-r from-red-400 via-red-600 to-black/60 bg-clip-text text-transparent"> Home Salon Partner! </span>
           </h1>
-          
-          {/* Trust Features with Icons */}
-          <div className="mt-6 mb-4">
-            {/* Mobile Version - Simple Row */}
-            <div className="flex lg:hidden justify-center items-center space-x-6">
-              <div className="flex items-center space-x-1">
-                <FaShieldAlt className="text-[#FF0000] text-lg" />
-                <span className="text-[#FF0000] font-semibold text-sm">Secure</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <FaLock className="text-[#FF0000] text-lg" />
-                <span className="text-[#FF0000] font-semibold text-sm">Safe</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <FaHeart className="text-[#FF0000] text-lg" />
-                <span className="text-[#FF0000] font-semibold text-sm">Trustable</span>
-              </div>
+      <div className="mt-6 mb-4">
+        {/* Mobile Version - Simple Row */}
+        <div className="flex lg:hidden justify-center items-center space-x-6">
+          <div className="flex items-center space-x-2">
+            <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+              <FaShieldAlt className="text-white text-xs" />
             </div>
+            <span className="text-gray-700 font-semibold text-sm">Secure</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+              <FaLock className="text-white text-xs" />
+            </div>
+            <span className="text-gray-700 font-semibold text-sm">Safe</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="w-6 h-6 bg-pink-500 rounded-full flex items-center justify-center">
+              <FaHeart className="text-white text-xs" />
+            </div>
+            <span className="text-gray-700 font-semibold text-sm">Trustable</span>
+          </div>
+        </div>
 
-            {/* Desktop Version - Alternative Minimal Cards */}
-            <div className="hidden lg:flex justify-start items-center space-x-4">
-              {/* Secure Badge - Minimal */}
-              <div className="group flex items-center space-x-3 bg-white/95 backdrop-blur-md border-2 border-red-100 px-5 py-3 rounded-[30px] shadow-md hover:shadow-2xl hover:border-red-300 transition-all duration-400 hover:-translate-y-1">
-                <div className="flex items-center justify-center w-12 h-12 bg-white rounded-lg group-hover:bg-red-50 transition-colors duration-300">
-                  <FaShieldAlt className="text-red-500 group-hover:text-red-600 text-xl transition-colors duration-300" />
-                </div>
-                <span className="text-gray-700 group-hover:text-red-600 font-montserrat font-bold text-base transition-colors duration-300">
-                  Secure
-                </span>
-              </div>
-              
-              {/* Safe Badge - Minimal */}
-              <div className="rounded-[30px] group flex items-center space-x-3 bg-white/95 backdrop-blur-md border-2 border-emerald-100 px-5 py-3 shadow-md hover:shadow-2xl hover:border-emerald-300 transition-all duration-400 hover:-translate-y-1">
-                <div className="flex items-center justify-center w-12 h-12 bg-white rounded-lg group-hover:bg-emerald-50 transition-colors duration-300">
-                  <FaLock className="text-emerald-500 group-hover:text-emerald-600 text-xl transition-colors duration-300" />
-                </div>
-                <span className="text-gray-700 group-hover:text-emerald-600 font-montserrat font-bold text-base transition-colors duration-300">
-                  Safe
-                </span>
-              </div>
-              
-              {/* Trustable Badge - Minimal */}
-              <div className="rounded-[30px] group flex items-center space-x-3 bg-white/95 backdrop-blur-md border-2 border-pink-100 px-5 py-3 shadow-md hover:shadow-2xl hover:border-pink-300 transition-all duration-400 hover:-translate-y-1">
-                <div className="flex items-center justify-center w-12 h-12 bg-white rounded-lg group-hover:bg-pink-50 transition-colors duration-300">
-                  <FaHeart className="text-pink-500 group-hover:text-pink-600 text-xl transition-colors duration-300" />
-                </div>
-                <span className="text-gray-700 group-hover:text-pink-600 font-montserrat font-bold text-base transition-colors duration-300">
-                  Trustable
-                </span>
-              </div>
+        {/* Desktop Version - Simple Icon + Text */}
+        <div className="hidden lg:flex justify-start items-center space-x-8">
+          {/* Secure */}
+          <div className="group flex items-center space-x-3">
+            <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300 shadow-lg">
+              <FaShieldAlt className="text-white text-lg" />
             </div>
+            <span className="text-gray-700 group-hover:text-gray-900 font-montserrat font-bold text-[25px] transition-colors duration-300">
+              Secure
+            </span>
           </div>
           
+          {/* Safe */}
+          <div className="group flex items-center space-x-3">
+            <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center group-hover:bg-green-600 transition-colors duration-300 shadow-lg">
+              <FaLock className="text-white text-lg" />
+            </div>
+            <span className="text-gray-700 group-hover:text-gray-900 font-montserrat font-bold text-[25px] transition-colors duration-300">
+              Safe
+            </span>
+          </div>
+          
+          {/* Trustable */}
+          <div className="group flex items-center space-x-3">
+            <div className="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center group-hover:bg-pink-600 transition-colors duration-300 shadow-lg">
+              <FaHeart className="text-white text-lg" />
+            </div>
+            <span className="text-gray-700 group-hover:text-gray-900 font-montserrat font-bold text-[25px] transition-colors duration-300">
+              Trustable
+            </span>
+          </div>
+        </div>
+      </div>
           <p className="text-gray-600 text-[15px] sm:text-[20px] sm:text-md mt-2 max-w-[500px] mx-auto lg:mx-0">
             Get <span className="font-bold text-[#FF0000]">Naibeau</span> for your next booking. We are
             here to help you get your next salon service smooth and convenient.
@@ -134,7 +137,7 @@ export default function Home() {
         <img 
           src={HeroImage} 
           alt="Hero" 
-          className="w-full max-w-[300px] xs:max-w-[350px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[650px] lg:max-h-[600px] xs:max-h-[300px] sm:-mb-5 mx-4 sm:mx-8 lg:mr-0 order-3 lg:order-2 object-cover rounded-[32px] sm:rounded-[56px]"
+          className="w-full max-w-[300px] xs:max-w-[350px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[650px] lg:max-h-[600px] xs:max-h-[300px] sm:-mb-4 mt-4 -mb-4 mx-4 sm:mx-8 lg:mr-0 order-3 lg:order-2 object-cover rounded-[32px] sm:rounded-[56px]"
         />
       </div>
 
