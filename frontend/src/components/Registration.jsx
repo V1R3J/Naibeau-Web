@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 export default function Registration() {
-  // Since react-hook-form isn't available, we'll simulate its functionality
+  // Form state management
   const [formData, setFormData] = useState({
     name: '',
     phoneNumber: ''
@@ -12,7 +13,7 @@ export default function Registration() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // null, 'success', 'error'
 
-  // Validation rules (similar to react-hook-form)
+  // Validation rules
   const validationRules = {
     name: {
       required: 'Please enter your name',
@@ -34,7 +35,19 @@ export default function Registration() {
     }
   };
 
-  // Validate function (similar to react-hook-form validation)
+  // API configuration
+  const API_BASE_URL = 'http://localhost:3000/api/partners';
+  
+  // Create axios instance with default config
+  const apiClient = axios.create({
+    baseURL: API_BASE_URL,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    timeout: 10000, // 10 seconds timeout
+  });
+
+  // Validate function
   const validateField = (fieldName, value) => {
     const rules = validationRules[fieldName];
     
@@ -53,7 +66,7 @@ export default function Registration() {
     return '';
   };
 
-  // Handle input change (similar to react-hook-form register)
+  // Handle input change
   const handleInputChange = (fieldName, value) => {
     // Clear submit status when user starts typing
     if (submitStatus) {
@@ -107,7 +120,7 @@ export default function Registration() {
     return !nameError && !phoneError && formData.name.trim() && formData.phoneNumber.length === 10;
   };
 
-  // Handle form submission (similar to react-hook-form handleSubmit)
+  // Handle form submission with Axios
   const handleSubmit = async () => {
     // Validate all fields
     const nameError = validateField('name', formData.name);
@@ -126,13 +139,16 @@ export default function Registration() {
       setSubmitStatus(null);
       
       try {
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        // Prepare data for API
+        const apiData = {
+          name: formData.name.trim(),
+          phone: formData.phoneNumber // Send just the 10-digit number
+        };
+
+        // Send data to API using Axios
+        const response = await apiClient.post('/', apiData);
         
-        console.log('Registration Data:', {
-          name: formData.name,
-          phone: `+91${formData.phoneNumber}`
-        });
+        console.log('Registration successful:', response.data);
         
         // Set success status
         setSubmitStatus('success');
@@ -150,7 +166,50 @@ export default function Registration() {
         
       } catch (error) {
         console.error('Registration failed:', error);
+        
+        // Detailed debugging information
+        console.log('Full error object:', error);
+        console.log('Error response:', error.response);
+        console.log('Error request:', error.request);
+        console.log('Error message:', error.message);
+        console.log('Error code:', error.code);
+        
+        // Handle different types of errors
+        let errorMessage = 'There was an error processing your registration. Please try again.';
+        
+        if (error.code === 'ECONNABORTED') {
+          errorMessage = 'Request timeout. Please check your connection and try again.';
+        } else if (error.response) {
+          // Server responded with error status
+          const status = error.response.status;
+          const data = error.response.data;
+          
+          console.log('Server response status:', status);
+          console.log('Server response data:', data);
+          
+          if (status === 400) {
+            errorMessage = data.message || 'Invalid data provided. Please check your information.';
+          } else if (status === 409) {
+            errorMessage = 'This phone number is already registered.';
+          } else if (status >= 500) {
+            errorMessage = 'Server error. Please try again later.';
+          }
+        } else if (error.request) {
+          // Network error
+          console.log('Network error - no response received');
+          errorMessage = 'Network error. Please check your connection and try again.';
+        }
+        
+        console.error('Error details:', {
+          message: error.message,
+          status: error.response?.status,
+          data: error.response?.data,
+          url: error.config?.url,
+          method: error.config?.method
+        });
+        
         setSubmitStatus('error');
+        
       } finally {
         setIsSubmitting(false);
       }

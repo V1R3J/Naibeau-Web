@@ -9,7 +9,7 @@ export default function Download() {
     <div className="px-4 sm:px-6 md:px-8 lg:px-8" >
       {/* Pink Box Section */}
       <div
-        className="mt-4 w-full min-h-[450px] sm:min-h-[550px] md:min-h-[650px] lg:min-h-[760px] rounded-[32px] sm:rounded-[36px] md:rounded-[48px] lg:rounded-[56px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 py-5 sm:py-6 md:py-7 flex flex-col lg:flex-row relative bg-[#FFEFEF] overflow-hidden">
+        className="mt-4 w-full min-h-[450px] sm:min-h-[550px] md:min-h-[650px] lg:h-[700px] rounded-[32px] sm:rounded-[36px] md:rounded-[48px] lg:rounded-[56px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 py-5 sm:py-6 md:py-7 flex flex-col lg:flex-row relative bg-[#FFEFEF] overflow-hidden">
         {/* Content Container */}
         <div className="flex flex-col lg:flex-row w-full gap-2 sm:gap-4 md:gap-6 lg:gap-8 h-full">
           
@@ -52,7 +52,7 @@ export default function Download() {
       <div className="flex flex-col items-center text-center py-8 sm:py-9 md:py-10 mt-8 sm:mt-9 md:mt-10 mb-8 sm:mb-9 md:mb-10 px-4 sm:px-6 md:px-8">
         <div className="relative w-full max-w-[400px] md:max-w-[480px] mb-6 sm:mb-7 md:mb-8">
           <h2 className="text-[22px] sm:text-[26px] md:text-[30px] lg:text-[35px] font-semibold font-montserrat mb-3">
-            Download for iOS/Android.
+            Download the App
           </h2>
           <img
             src={Underline}
