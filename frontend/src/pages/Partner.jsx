@@ -79,7 +79,7 @@ export default function Partner() {
             Download the Partner App now!
           </h2>
           
-          <p className="mt-3 mx-auto lg:mx-8 font-semibold text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] text-[#000000] leading-normal">
+          <p className="mt-3 mx-auto lg:mx-8 font-semibold text-[18px] sm:text-[20px] md:text-[20px] lg:text-[25px] text-[#000000] leading-normal mb-6">
             Redefine convenience. <br/>Schedule your next beauty appointment on the Naibeau app.
           </p>
 

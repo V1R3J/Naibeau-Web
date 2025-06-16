@@ -358,8 +358,8 @@ export default function Registration() {
                 <label className="block text-left text-lg font-medium text-gray-700 mb-2">
                   Enter Your WhatsApp Number
                 </label>
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-2 px-3 py-3 sm:py-4 border border-gray-50 rounded-lg flex-shrink-0">
+                <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 px-3 py-3 sm:py-4 bg-white border border-gray-200 rounded-lg flex-shrink-0">
                     <img 
                       src="https://flagcdn.com/in.svg" 
                       alt="India" 
