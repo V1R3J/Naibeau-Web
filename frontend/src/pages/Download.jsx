@@ -9,7 +9,7 @@ export default function Download() {
     <div className="px-4 sm:px-6 md:px-8 lg:px-8" >
       {/* Pink Box Section */}
       <div
-        className="mt-4 w-full min-h-[450px] sm:min-h-[550px] md:min-h-[570px] lg:h-[630px] rounded-[32px] sm:rounded-[36px] md:rounded-[48px] lg:rounded-[56px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 py-5 sm:py-6 md:py-7 flex flex-col lg:flex-row relative bg-[#FFEFEF] overflow-hidden">
+        className="mt-4 w-full min-h-[450px] sm:min-h-[550px] md:min-h-[570px] lg:h-[630px] rounded-[32px] sm:rounded-[36px] md:rounded-[48px] lg:rounded-[56px] border-red-300 border-2 mx-auto px-4 sm:px-6 md:px-8 lg:px-8 py-5 sm:py-6 md:py-7 flex flex-col lg:flex-row relative bg-[#FFEFEF] overflow-hidden">
         {/* Content Container */}
         <div className="flex flex-col lg:flex-row w-full gap-2 sm:gap-4 md:gap-6 lg:gap-8 h-full">
           
@@ -19,7 +19,7 @@ export default function Download() {
             <div className="mb-4 sm:mb-6 md:mb-7 lg:mb-8">
               <span>
                 <h1 className="ml-3 text-[35px] uppercase xs:text-[36px] sm:text-[42px] md:text-[56px] lg:text-[80px] xl:text-[100px] font-antonio font-semibold text-[#FF0000] leading-1.5 sm:leading-normal text-center md:text-center lg:text-left">
-                  Expert Services<br />at Home! 
+                  Expert Services at Home! 
                 </h1>
                 {/* Description */}
                 <p className="ml-3 w-full max-w-[589px] text-[12px] xs:text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] mt-4 sm:mt-5 md:mt-6 mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-[#808285] leading-relaxed text-center md:text-center lg:text-left">
@@ -51,7 +51,7 @@ export default function Download() {
       {/* Download Section */}
       <div className="flex flex-col items-center text-center py-8 sm:py-9 md:py-10 mt-8 sm:mt-9 md:mt-10 mb-8 sm:mb-9 md:mb-10 px-4 sm:px-6 md:px-8">
         <div className="relative w-full max-w-[400px] md:max-w-[480px] mb-6 sm:mb-7 md:mb-8">
-          <h2 className="text-[22px] sm:text-[26px] md:text-[30px] lg:text-[35px] font-semibold font-montserrat mb-3">
+          <h2 className="text-[22px] sm:text-[26px] md:text-[30px] lg:text-[35px] font-semibold  mb-3">
             Download the App
           </h2>
           <img
@@ -70,7 +70,7 @@ export default function Download() {
               alt="Play Store" 
               className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 flex-shrink-0" 
             />
-            <span className="font-montserrat text-[16px] xs:text-[18px] sm:text-[20px] md:text-[22px] lg:text-[28px] xl:text-[35px] font-normal text-center">
+            <span className="text-[16px] xs:text-[18px] sm:text-[20px] md:text-[22px] lg:text-[28px] xl:text-[35px] font-normal text-center">
               Get it on Google Play
             </span>
           </a>
@@ -83,8 +83,8 @@ export default function Download() {
               alt="App Store" 
               className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 flex-shrink-0" 
             />
-            <span className="font-montserrat text-[16px] xs:text-[18px] sm:text-[20px] md:text-[22px] lg:text-[28px] xl:text-[35px] font-normal text-center">
-              Get it on app store
+            <span className="text-[16px] xs:text-[18px] sm:text-[20px] md:text-[22px] lg:text-[28px] xl:text-[35px] font-normal text-center">
+              Get it on App Store
             </span>
           </a>
         </div>
