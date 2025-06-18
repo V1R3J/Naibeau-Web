@@ -24,6 +24,8 @@ import g4 from '/static/g4.svg';
 import g5 from '/static/g5.svg';
 import g6 from '/static/g6.svg';
 import { FaShieldAlt, FaLock, FaHeart } from 'react-icons/fa';
+import { IoPersonAddSharp } from "react-icons/io5";
+
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("Women");
@@ -41,7 +43,7 @@ export default function Home() {
   };
 
   return (
-    <div className="px-2 sm:px-4">
+    <div className="ml-3 mr-3 px-2 sm:px-4">
       {/* Hero Section */}
       <div
         className="mt-3 max-w-[1500px] w-full lg:h-[630px] h-auto mx-auto rounded-[32px] sm:rounded-[56px] flex flex-col lg:flex-row justify-between items-center p-4 sm:p-6 lg:p-0"
@@ -137,13 +139,14 @@ export default function Home() {
         <img 
           src={HeroImage} 
           alt="Hero" 
-          className="w-full max-w-[300px] xs:max-w-[350px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[650px] lg:max-h-[600px] xs:max-h-[300px] sm:-mb-4 mt-4 -mb-4 mx-4 sm:mx-8 lg:mr-0 order-3 lg:order-2 object-cover rounded-[32px] sm:rounded-[56px]"
+          className="flex-wrap overflow-hidden w-full max-w-[300px] xs:max-w-[350px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[650px] lg:max-h-[600px] xs:max-h-[300px] 
+                      sm:-mb-4 mt-4 -mb-4 mx-4 sm:mx-8 lg:mr-0 order-3 lg:order-2 object-cover rounded-[32px] sm:rounded-[56px]"
         />
       </div>
 
       {/* What We Offer Section */}
       <div
-        className="p-4 sm:p-6 lg:p-6 rounded-[32px] sm:rounded-[56px] shadow-lg mt-3 ml-1 mr-1 mx-auto max-w-[1500px] h-auto lg:max-h-[770px]"
+        className="border-red-200 border-2 p-4 sm:p-6 lg:p-10 rounded-[32px] sm:rounded-[56px] shadow-md mt-4 ml-3 mr-3 mx-auto max-w-[1500px]"
         style={{
           backgroundImage: `url(/static/Vector3.svg)`,
           backgroundSize: "cover",
@@ -152,42 +155,68 @@ export default function Home() {
         }}
       >
         <div className="text-center">
-          <h2 className="mt-3 p-3 font-montserrat font-semibold text-[28px] sm:text-[35px] lg:text-[42px] mb-3">What We Offer!</h2>
-          <p className="text-[16px] sm:text-[18px] lg:text-[22px] font-sans text-gray-600 max-w-[800px] mx-auto">
+          <h2 className="mt-3 font-montserrat font-semibold text-[28px] sm:text-[35px] lg:text-[42px] mb-3">What we offer!</h2>
+          <p className="text-[16px] sm:text-[18px] lg:text-[20px] font-sans text-gray-600 max-w-[800px] mx-auto">
             Discover a wide range of personalized beauty and grooming services tailored just for you.
           </p>
         </div>
 
-        <div className="flex items-center justify-center mt-6">
-          <div className="bg-white rounded-full p-2 w-full max-w-[450px] h-[55px] sm:h-[65px] shadow-md flex justify-between items-center mx-4">
-            <button
-              className={`flex items-center justify-center gap-1 sm:gap-2 flex-1 h-[40px] sm:h-[50px] py-2 px-3 sm:px-5 rounded-full font-semibold ${
-                activeTab === "Women" ? "bg-[#FF0000] text-white" : "text-gray-700"
-              }`}
-              onClick={() => setActiveTab("Women")}
-            >
-              <img
-                src={activeTab === "Women" ? femaleiconw : femaleicon}
-                className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7"
-                alt="Female Icon"
-              />
-              <p className="font-montserrat text-[14px] sm:text-[16px] lg:text-[18px]">Women</p>
-            </button>
-            <button
-              className={`flex items-center justify-center gap-1 sm:gap-2 flex-1 h-[40px] sm:h-[50px] py-2 px-3 sm:px-5 rounded-full font-semibold ${
-                activeTab === "Men" ? "bg-[#FF0000] text-white" : "text-gray-700"
-              }`}
-              onClick={() => setActiveTab("Men")}
-            >
-              <img
-                src={activeTab === "Men" ? maleiconw : maleicon}
-                className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7"
-                alt="Male Icon"
-              />
-              <p className="font-montserrat text-[14px] sm:text-[16px] lg:text-[18px]">Men</p>
-            </button>
-          </div>
+       <div className="flex items-center justify-center mt-5 ">
+        <div className="bg-white rounded-full p-1 w-full max-w-[450px] h-[55px] sm:h-[65px] shadow-md flex justify-between items-center mx-4 relative">
+          {/* Sliding Background Indicator */}
+          <div 
+            className={`absolute top-1 bottom-1 w-[calc(50%-2px)] bg-[#FF0000] rounded-full 
+                        transition-all duration-500 ease-in-out shadow-md z-0
+                        ${activeTab === "Women" ? "left-1" : "left-[calc(50%+1px)]"}`}
+          />
+          
+          {/* Women Button */}
+          <button
+            className={`flex items-center justify-center gap-1 sm:gap-2 flex-1 h-[40px] sm:h-[50px] 
+                        py-2 px-3 sm:px-5 rounded-full font-semibold z-10 relative
+                        transition-all duration-500 ease-in-out
+                        ${
+                          activeTab === "Women" 
+                            ? "text-white" 
+                            : "text-gray-700 hover:text-gray-900"
+                        }`}
+            onClick={() => setActiveTab("Women")}
+          >
+            <img
+              src={activeTab === "Women" ? femaleiconw : femaleicon}
+              className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 transition-all duration-500 ease-in-out"
+              alt="Female Icon"
+            />
+            <p className="font-montserrat text-[14px] sm:text-[16px] lg:text-[18px] 
+                          transition-all duration-500 ease-in-out font-medium">
+              Women
+            </p>
+          </button>
+          
+          {/* Men Button */}
+          <button
+            className={`flex items-center justify-center gap-1 sm:gap-2 flex-1 h-[40px] sm:h-[50px] 
+                        py-2 px-3 sm:px-5 rounded-full font-semibold z-10 relative
+                        transition-all duration-500 ease-in-out
+                        ${
+                          activeTab === "Men" 
+                            ? "text-white" 
+                            : "text-gray-700 hover:text-gray-900"
+                        }`}
+            onClick={() => setActiveTab("Men")}
+          >
+            <img
+              src={activeTab === "Men" ? maleiconw : maleicon}
+              className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 transition-all duration-500 ease-in-out"
+              alt="Male Icon"
+            />
+            <p className="font-montserrat text-[14px] sm:text-[16px] lg:text-[18px] 
+                          transition-all duration-500 ease-in-out font-medium">
+              Men
+            </p>
+          </button>
         </div>
+      </div>
 
         <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8">
           {services[activeTab].map((service, index) => (
@@ -206,9 +235,8 @@ export default function Home() {
                 <img
                   src={service.icon}
                   alt={service.title}
-                  className="mx-auto mb-3 w-auto h-auto max-h-[200px] sm:max-h-[250px] lg:max-h-[300px]
-                  hover:filter hover:brightness-75
-                  transition duration-300 ease-in-out object-contain"
+                  className="mx-auto mb-3 w-auto h-auto max-h-[200px] sm:max-h-[250px] lg:max-h-[320px]
+                  hover:filter transition duration-300 ease-in-out object-contain"
                 />
                 <p className="font-montserrat text-[18px] sm:text-[22px] lg:text-[26px] font-semibold mt-auto text-gray-800">{service.title}</p>
               </div>
@@ -245,10 +273,9 @@ export default function Home() {
           <div className="mt-6 flex items-center justify-center lg:justify-start">
             <NavLink
               to="/download"
-              className="flex items-center bg-white text-[#FF0000] py-2 px-4 sm:px-6 rounded-full font-semibold border-white border-2 text-base sm:text-lg hover:bg-red-600 hover:text-white"
+              className="h-[50px] w-auto flex items-center gap-2 bg-white text-[#FF0000] py-4 px-4 sm:px-8 rounded-2xl font-semibold border-white border-2 text-xl sm:text-3xl hover:bg-red-600 hover:text-white"
             >
-              Refer A Friend
-              <img src={ArrowRed} alt="Arrow Icon" className="hover:invert ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+              <p>Refer a friend</p><IoPersonAddSharp />
             </NavLink>
           </div>
         </div>
@@ -280,7 +307,7 @@ export default function Home() {
         {[g1, g2, g3, g4, g5, g6].map((src, index) => (
           <div
             key={index}
-            className="relative overflow-hidden rounded-lg transform transition-transform duration-300 hover:scale-110 hover:shadow-2xl hover:z-10"
+            className="relative overflow-hidden rounded-lg transform transition-transform duration-500 hover:scale-110  hover:z-5"
           >
             <img
               src={src}

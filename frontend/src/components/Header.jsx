@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import ArrowWhite from "/static/ArrowWhite.svg";
 import ArrowRed from "/static/ArrowRed.svg";
+import { LuArrowDownToLine } from "react-icons/lu";
+
+
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,7 +54,7 @@ export default function Header() {
           >
             Be Our Partner
           </NavLink>
-
+          
           <NavLink
             to="/download"
             className={({ isActive }) =>
@@ -64,12 +67,8 @@ export default function Header() {
           >
             {({ isActive }) => (
               <>
-                Download The App
-                <img
-                  src={isActive ? ArrowWhite : ArrowRed}
-                  alt="Download icon"
-                  className="w-5 h-5"
-                />
+                Download the app
+                <LuArrowDownToLine className="w-6 h-6"/>
               </>
             )}
           </NavLink>

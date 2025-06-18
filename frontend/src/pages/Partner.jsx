@@ -9,7 +9,7 @@ import PScan from '/static/PScan.svg';
 
 export default function Partner() {
   return (
-    <div className="px-4 sm:px-6 md:px-8 lg:px-8">
+    <div className="ml-3 mr-3 px-4 sm:px-6 md:px-8 lg:px-8">
       {/* Upper Section */}
       <div
         className="mt-4 w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px] rounded-[24px] sm:rounded-[32px] md:rounded-[48px] lg:rounded-[56px] bg-[#FFEFEF] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 py-6 sm:py-8 md:py-10 flex flex-col lg:flex-row shadow-md relative overflow-hidden"

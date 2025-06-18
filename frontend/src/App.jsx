@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Download from './pages/Download';
 import Partner from './pages/Partner';
+import Services from './pages/Services';
 
 // ScrollToTop Component
 function ScrollToTop() {
@@ -27,6 +28,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/download" element={<Download />} />
           <Route path="/partner" element={<Partner />} />
+          <Route path="/services" element={<Services />} />
+          
         </Routes>
       </main>
       <Footer />

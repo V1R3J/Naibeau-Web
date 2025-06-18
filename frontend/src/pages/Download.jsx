@@ -6,7 +6,7 @@ import M1 from '/static/M1.svg';
 
 export default function Download() {
   return (
-    <div className="px-4 sm:px-6 md:px-8 lg:px-8" >
+    <div className="ml-3 mr-3 px-4 sm:px-6 md:px-8 lg:px-8" >
       {/* Pink Box Section */}
       <div
         className="mt-4 w-full min-h-[450px] sm:min-h-[550px] md:min-h-[570px] lg:h-[630px] rounded-[32px] sm:rounded-[36px] md:rounded-[48px] lg:rounded-[56px] border-red-300 border-2 mx-auto px-4 sm:px-6 md:px-8 lg:px-8 py-5 sm:py-6 md:py-7 flex flex-col lg:flex-row relative bg-[#FFEFEF] overflow-hidden">
@@ -52,12 +52,12 @@ export default function Download() {
       <div className="flex flex-col items-center text-center py-8 sm:py-9 md:py-10 mt-8 sm:mt-9 md:mt-10 mb-8 sm:mb-9 md:mb-10 px-4 sm:px-6 md:px-8">
         <div className="relative w-full max-w-[400px] md:max-w-[480px] mb-6 sm:mb-7 md:mb-8">
           <h2 className="text-[22px] sm:text-[26px] md:text-[30px] lg:text-[35px] font-semibold  mb-3">
-            Download the App
+            Download the app
           </h2>
           <img
             src={Underline}
             alt="Underline decoration"
-            className="absolute bottom-[-5px] left-1/2 transform -translate-x-1/2 w-[250px] xs:w-[300px] sm:w-[320px] md:w-[360px] lg:w-full max-w-[350px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[250px] h-auto" />
+            className="absolute bottom-[-5px] left-1/2 transform -translate-x-1/2 w-[200px] xs:w-[100px] sm:w-[320px] md:w-[360px] lg:w-full max-w-[350px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[250px] h-auto" />
         </div>
 
         <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 w-full max-w-[500px] md:max-w-[600px] px-2">
