@@ -285,6 +285,7 @@ export default function Registration() {
           <h2 className="text-2xl sm:text-3xl font-montserrat font-semibold text-black mb-6 text-center">
              Share your details, and we will contact you!
           </h2>
+          <p className="mb-3 text-gray-500 font-sans text-base">Registration may take a little time. Please do not refresh the page and wait for the green tick to appear.</p>
           
           {/* Success/Error Messages */}
           {submitStatus && (
