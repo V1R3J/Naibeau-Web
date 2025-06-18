@@ -38,7 +38,8 @@ export default function Registration() {
   };
 
   // API configuration
-  const API_BASE_URL = 'http://localhost:3000/api/partners';
+  //const API_BASE_URL = 'http://localhost:3000/api/partners';
+  const API_BASE_URL = 'https://naibeau-web-backend.onrender.com/api/partners';
   
   // Create axios instance with default config
   const apiClient = axios.create({
@@ -49,48 +50,52 @@ export default function Registration() {
     timeout: 10000, // 10 seconds timeout
   });
 
-  // Haptic feedback function for mobile devices
-  const triggerHapticFeedback = (type = 'success') => {
-    try {
-      // Check if device supports haptic feedback
-      if ('vibrate' in navigator) {
-        if (type === 'success') {
-          // Success pattern: short-long-short vibration
-          navigator.vibrate([100, 50, 200, 50, 100]);
-        } else if (type === 'error') {
-          // Error pattern: three quick vibrations
-          navigator.vibrate([50, 100, 50, 100, 50]);
+  // Enhanced Haptic feedback function for mobile devices
+    const triggerHapticFeedback = (type = 'success') => {
+      try {
+        // Define stronger vibration patterns (2-3 seconds)
+        const vibrationPatterns = {
+          success: [400, 100, 500, 100, 600, 100, 400], // Strong 2.2s pattern
+          error: [200, 150, 300, 150, 200] // Moderate 1.0s pattern  
+        };
+
+        const pattern = vibrationPatterns[type] || vibrationPatterns.success;
+        
+        // Check if device supports haptic feedback
+        if ('vibrate' in navigator) {
+          navigator.vibrate(pattern);
         }
-      }
-      
-      // iOS Haptic Feedback (if available)
-      if ('hapticFeedback' in window) {
-        if (type === 'success') {
-          window.hapticFeedback.impact({ style: 'medium' });
-        } else if (type === 'error') {
-          window.hapticFeedback.notification({ type: 'error' });
-        }
-      }
-      
-      // Web Vibration API with modern pattern support
-      if (window.DeviceMotionEvent && typeof DeviceMotionEvent.requestPermission === 'function') {
-        // iOS 13+ devices
-        DeviceMotionEvent.requestPermission().then(response => {
-          if (response === 'granted' && 'vibrate' in navigator) {
-            if (type === 'success') {
-              navigator.vibrate([100, 50, 200, 50, 100]);
-            } else if (type === 'error') {
-              navigator.vibrate([50, 100, 50, 100, 50]);
-            }
+        
+        // iOS Haptic Feedback (if available)
+        if ('hapticFeedback' in window) {
+          if (type === 'success') {
+            window.hapticFeedback.impact({ style: 'heavy' }); // Changed to heavy for stronger feedback
+          } else if (type === 'error') {
+            window.hapticFeedback.notification({ type: 'error' });
           }
-        }).catch(console.error);
+        }
+        
+        // Web Vibration API with modern pattern support for iOS 13+
+        if (window.DeviceMotionEvent && typeof DeviceMotionEvent.requestPermission === 'function') {
+          // iOS 13+ devices
+          DeviceMotionEvent.requestPermission().then(response => {
+            if (response === 'granted' && 'vibrate' in navigator) {
+              navigator.vibrate(pattern);
+            }
+          }).catch(error => {
+            console.error('Motion permission error:', error);
+            // Fallback - try vibration anyway
+            if ('vibrate' in navigator) {
+              navigator.vibrate(pattern);
+            }
+          });
+        }
+        
+      } catch (error) {
+        // Silently fail if haptic feedback is not supported
+        console.log('Haptic feedback not supported on this device');
       }
-      
-    } catch (error) {
-      // Silently fail if haptic feedback is not supported
-      console.log('Haptic feedback not supported on this device');
-    }
-  };
+    };
 
   // Validate function
   const validateField = (fieldName, value) => {
@@ -308,7 +313,6 @@ export default function Registration() {
                   {submitStatus === 'success' ? (
                     <div>
                       <h3 className="font-semibold text-lg">Successfully Registered!</h3>
-                      <p className="mt-1 text-sm">We'll contact you soon on WhatsApp for partnership details.</p>
                     </div>
                   ) : (
                     <div>
@@ -423,7 +427,7 @@ export default function Registration() {
                     </>
                   ) : (
                     <>
-                      Join Our Partner Network
+                      Be our Partner
                       <svg className="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                       </svg>

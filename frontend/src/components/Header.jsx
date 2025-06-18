@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import ArrowWhite from "/static/ArrowWhite.svg";
-import ArrowRed from "/static/ArrowRed.svg";
 import { LuArrowDownToLine } from "react-icons/lu";
 
 
@@ -104,7 +102,7 @@ export default function Header() {
                 className="text-red-600 text-lg font-medium hover:text-red-800 flex items-center gap-2"
               >
                 Download The App
-                <img src={ArrowRed} alt="Download icon" className="w-3 h-3 items-center" />
+                <LuArrowDownToLine className="w-6 h-6"/>
               </Link>
             </li>
           </ul>

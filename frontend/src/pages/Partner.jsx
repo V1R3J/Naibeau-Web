@@ -1,4 +1,3 @@
-import React from 'react';
 import Registration from '../components/Registration';
 import Partners from '/static/Partners.svg';
 import Bene2 from '/static/Bene2.svg';
@@ -21,8 +20,8 @@ export default function Partner() {
         }}
       >
         {/* Text Content */}
-        <div className="flex flex-col justify-start flex-1 lg:max-w-[60%]">
-          <h1 className="mt-2 sm:mt-4 md:mt-6 lg:mt-5 font-montserrat text-[28px] sm:text-[36px] md:text-[48px] lg:text-[60px] font-semibold leading-tight text-center sm:text-left">
+        <div className="mt-3 ml-7 flex flex-col justify-start flex-1 lg:max-w-[60%]">
+          <h1 className=" mt-2 sm:mt-4 md:mt-6 lg:mt-5 font-montserrat text-[28px] sm:text-[36px] md:text-[48px] lg:text-[60px] font-semibold leading-tight text-center sm:text-left">
             Grow with Us <br /> Become our
           </h1>
           <h2 className="underline-offset-4 text-center sm:text-left sm:underline-offset-6 md:underline-offset-8 underline font-montserrat text-[28px] sm:text-[36px] md:text-[48px] lg:text-[60px] text-[#FF0000] font-semibold">

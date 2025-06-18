@@ -6,7 +6,6 @@ import SalonIcon from "/static/salon.svg";
 import MakeupIcon from "/static/makeup.svg";
 import MaleSpaIcon from "/static/malespa.svg";
 import MaleSalonIcon from "/static/malesalon.svg";
-import ArrowRed from "/static/ArrowRed.svg";
 import ReferImage from "/static/refer.svg";
 import maleicon from "/static/maleicon.svg";
 import femaleicon from "/static/femaleicon.svg";
@@ -41,6 +40,7 @@ export default function Home() {
       { icon: MaleSalonIcon, title: "Men's Salon Services" },
     ],
   };
+  
 
   return (
     <div className="ml-3 mr-3 px-2 sm:px-4">
@@ -146,7 +146,7 @@ export default function Home() {
 
       {/* What We Offer Section */}
       <div
-        className="border-red-200 border-2 p-4 sm:p-6 lg:p-10 rounded-[32px] sm:rounded-[56px] shadow-md mt-4 ml-3 mr-3 mx-auto max-w-[1500px]"
+        className="border-red-200 border-2 mt-3 max-w-[1500px] w-full h-auto mx-auto rounded-[32px] sm:rounded-[56px] justify-between items-center p-4 sm:p-6 lg:p-0"
         style={{
           backgroundImage: `url(/static/Vector3.svg)`,
           backgroundSize: "cover",
@@ -218,7 +218,7 @@ export default function Home() {
         </div>
       </div>
 
-        <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8">
+        <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8 mb-10 ">
           {services[activeTab].map((service, index) => (
             <div
               key={index}
@@ -227,10 +227,8 @@ export default function Home() {
             >
               <div
                 className="rounded-[24px] shadow-lg bg-[#FFFFFF] p-4 sm:p-6 lg:p-7 font-montserrat text-center flex flex-col justify-between
-                hover:bg-[#d49a9a]/50 -z-0 border-2 border-transparent
-                hover:text-black hover:shadow-2xl
-                transition-all duration-300 ease-in-out 
-                w-[280px] h-[320px] sm:w-[320px] sm:h-[380px] lg:w-[380px] lg:h-[420px]"
+                -z-0 border-1 border-red-400  transition-all duration-500 ease-in-out 
+                w-[280px] h-[320px] sm:w-[320px] sm:h-[380px] lg:w-[310px] lg:h-[390px]"
               >
                 <img
                   src={service.icon}
@@ -247,7 +245,7 @@ export default function Home() {
 
       {/* Refer & Earn Section */}
       <div
-        className="flex flex-col lg:flex-row justify-between items-center mx-2 sm:mx-4 p-4 sm:p-6 lg:p-8 rounded-[32px] sm:rounded-[56px] text-white mt-10 max-w-[1500px]"
+        className="flex flex-col lg:flex-row justify-between items-center p-4 sm:p-6 lg:p-8 rounded-[32px] sm:rounded-[56px] text-white mt-3 mb- max-w-[1600px]"
         style={{
           backgroundImage: `url(/static/Vector4.svg)`,
           backgroundSize: "cover",
@@ -264,7 +262,7 @@ export default function Home() {
           <img 
             src={ReferImage} 
             alt="Refer and Earn" 
-            className="w-full max-w-[250px] xs:max-w-[300px] sm:max-w-[400px] h-auto mx-auto my-4 lg:hidden" 
+            className="w-full max-w-[250px] xs:max-w-[300px] sm:max-w-[405px] h-auto mx-auto my-4 lg:hidden" 
           />
           
           <p className="font-montserrat text-[16px] sm:text-[20px] lg:text-[28px] mt-2 max-w-[500px] mx-auto lg:mx-0">
@@ -273,7 +271,7 @@ export default function Home() {
           <div className="mt-6 flex items-center justify-center lg:justify-start">
             <NavLink
               to="/download"
-              className="h-[50px] w-auto flex items-center gap-2 bg-white text-[#FF0000] py-4 px-4 sm:px-8 rounded-2xl font-semibold border-white border-2 text-xl sm:text-3xl hover:bg-red-600 hover:text-white"
+              className="h-[50px] w-auto flex items-center gap-3 bg-white text-[#FF0000] py-4 px-4 sm:px-8 rounded-2xl font-semibold border-white border-2 text-xl sm:text-3xl hover:bg-red-600 hover:text-white"
             >
               <p>Refer a friend</p><IoPersonAddSharp />
             </NavLink>
