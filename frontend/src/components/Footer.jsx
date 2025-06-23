@@ -27,6 +27,7 @@ export default function Footer() {
             <li><Link to="/" className="hover:text-red-500">Home</Link></li>
             <li><Link to="/partner" className="hover:text-red-500">Be Our Partner</Link></li>
             <li><Link to="/download" className="hover:text-red-500">Download The App</Link></li>
+            <li><Link to="/privacy" className='hover:text-red-500 '>Privacy Policy</Link></li>
           </ul>
         </div>
 
@@ -43,13 +44,13 @@ export default function Footer() {
         {/* Contact Info */}
         <div>
           <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
-          <a href="mailto:support@naibeau.com" className="flex items-center gap-2 mb-4 text-gray-300">
+          <a href="mailto:support@naibeau.com" className="flex items-center gap-2 mb-4 hover:text-red-500 text-gray-300">
             <FaEnvelopeOpen className="text-red-600" /> support@naibeau.com
           </a>
-          <a href="tel: 92271 77657" className="flex items-center gap-2 mb-4 text-gray-300">
+          <a href="tel: 92271 77657" className="flex items-center gap-2 mb-4 text-gray-300 hover:text-red-500">
             <FaPhone className="text-red-600" /> +91 92271 77657
           </a>
-          <a href="https://maps.app.goo.gl/oaXKcqGVD9zuuL2HA" className="flex items-center gap-2 mb-4 text-gray-300 text-[15px]">
+          <a href="https://maps.app.goo.gl/K7zD8JwmGcnBVhPD9" className="flex items-center gap-2 mb-4 text-gray-300  hover:text-red-500 text-[15px]">
             <FaMapMarkedAlt className="text-red-600 sm:h-[20px] sm:w-[20px] h-[25px] w-[25px]"/> 
             Office 4, Cradle, EDII, Gandhinagar-Ahmedabad Road, <br />Near Apollo Hospital, Bhat, Ahmedabad, Gujarat 382428
           </a>

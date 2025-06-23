@@ -3,6 +3,7 @@ import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { BiSolidBadgeCheck } from "react-icons/bi";
 import { TiBrush } from "react-icons/ti";
 import { BsScissors } from "react-icons/bs";
+import { NavLink } from 'react-router-dom';
 
 const Gallery = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -210,9 +211,9 @@ const Gallery = () => {
 
   return (
     <div 
-      className="w-[97%] max-w-[1470px] mt-4 sm:mt-6 mb-6 sm:mb-8 mx-2 sm:mx-6 lg:mx-3 
-                 bg-white border-red-400 border-2 rounded-[24px] sm:rounded-[40px] lg:rounded-[56px] 
-                 shadow-lg overflow-hidden"
+      className="w-auto max-w-[1500px] mt-4 sm:mt-5 mb-5 sm:mb-5 mx-2 sm:mx-4 p-2 lg:mx-3 
+                 bg-white border-red-400 border-2 rounded-[24px] sm:rounded-[40px] lg:rounded-[50px] 
+                 overflow-hidden"
       style={{ 
         backgroundImage: `url(/static/vector2.svg)`,
         backgroundSize: 'cover',
@@ -359,13 +360,15 @@ const Gallery = () => {
                             {slide.description}
                           </p>
                           
-                          <button 
-                            className="w-full px-1 sm:px-2 py-0.5 sm:py-1.5 md:py-2 border border-red-500 text-white bg-red-500 uppercase 
-                                     tracking-wider rounded-sm sm:rounded-lg text-xs hover:bg-white hover:text-red-500 transition-all duration-300
-                                     font-bold"
-                          >
-                            book now
-                          </button>
+                          <NavLink 
+                            to="/download" >
+                            <div 
+                            className="w-full px-1 sm:px-2 py-0.5 sm:py-1.5 md:py-2 border border-red-500 text-white bg-red-500 text-center font-semibold
+                                     tracking-wider rounded-sm sm:rounded-lg text-xs hover:bg-white hover:text-red-500 transition-all duration-3 " >
+                          
+                            Book Now
+                            </div>
+                          </NavLink>
                         </div>
                       </div>
                     </div>

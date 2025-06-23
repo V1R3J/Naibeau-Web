@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import HeroImage from "/static/Hero.svg";
 import SpaIcon from "/static/spa.svg";
@@ -12,6 +12,7 @@ import femaleicon from "/static/femaleicon.svg";
 import maleiconw from "/static/maleiconw.svg";
 import femaleiconw from "/static/femaleiconw.svg";
 import Gallery from "../components/Gallery";
+import Faq from "../components/Faq";
 import AppD from '/static/AStoreB.svg';
 import PlayD from '/static/GplayB.svg';
 import Logo from '/static/Logo.svg';
@@ -40,6 +41,39 @@ export default function Home() {
       { icon: MaleSalonIcon, title: "Men's Salon Services" },
     ],
   };
+  const features = [
+    {
+      title: "Wide Selection Of Service Partners",
+      description: "Explore a wide range of trusted service partners to meet your needs",
+      icon: "/static/g1.svg"
+    },
+    {
+      title: "Affordable Deals",
+      description: "Affordable deals designed to fit your budget.",
+      icon: "/static/g2.svg"
+    },
+    {
+      title: "Compare And Choose",
+      description: "Explore a wide range of trusted service partners to meet your needs",
+      icon: "/static/g3.svg"
+    },
+    {
+      title: "Find The Nearest Service Provider",
+      description: "Quick, easy access to the nearest service you need, exactly when you need it.",
+      icon: "/static/g4.svg"
+    },
+    {
+      title: "Trusted Reviews And Ratings",
+      description: "Transparent reviews and ratings to help you decide",
+      icon: "/static/g5.svg"
+    },
+    {
+      title: "Certified And Reliable Providers",
+      description: "Our trusted partners are verified for quality and reliability, so you can rest easy.",
+      icon: "/static/g6.svg"
+    }
+  ];
+
   
 
   return (
@@ -116,14 +150,14 @@ export default function Home() {
         </div>
       </div>
           <p className="text-gray-600 text-[15px] sm:text-[20px] sm:text-md mt-2 max-w-[500px] mx-auto lg:mx-0">
-            Get <span className="font-bold text-[#FF0000]">Naibeau</span> for your next booking. We are
+            Get <span className="font-bold text-[#FF0000]">naibeau</span> for your next booking. We are
             here to help you get your next salon service smooth and convenient.
           </p>
           
-          <div className="mt-6 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-center md:items-center">
+          <div className="mt-10 mb-3 sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-center md:items-center">
             <NavLink
               to="/download"
-              className="bg-[#FF0000] text-white py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-lg hover:bg-[#e60000] w-full sm:w-auto text-center transition-colors duration-300"
+              className="bg-[#ef3636] text-white py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-lg hover:bg-[#e60000] w-full sm:w-auto text-center transition-colors duration-300"
             >
               Download The App
             </NavLink>
@@ -290,36 +324,54 @@ export default function Home() {
       <Gallery />
 
       {/* What Sets Us Apart Section */}
-      <div
-        className="bg-[#FFD5D5] border-[#E43844] border-3 mt-6 p-4 sm:mt-8 mb-6 sm:mb-8 rounded-[32px] sm:rounded-[50px] w-full max-w-[1500px] mx-auto h-auto sm:p-4 lg:px-12 grid grid-cols-1 sm:grid-cols-2 gap-4"
-        style={{
-          backgroundImage: `url(/static/Vector9.svg)`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-        }}
-      >
-        <h2 className="col-span-1 sm:col-span-2 text-center mb-3 p-3 sm:p-5 font-montserrat text-[24px] sm:text-[30px] lg:text-[40px] font-semibold">
-          What Sets Us Apart
-        </h2>
-        {[g1, g2, g3, g4, g5, g6].map((src, index) => (
-          <div
-            key={index}
-            className="relative overflow-hidden rounded-lg transform transition-transform duration-500 hover:scale-110  hover:z-5"
-          >
-            <img
-              src={src}
-              alt={`Image ${index + 1}`}
-              className="w-full h-auto rounded-lg"
-              style={{
-                maxWidth: "98%",
-                maxHeight: "98%",
-                margin: "auto",
-              }}
-            />
+     <div
+      className="bg-[#FFD5D5] border-[#E43844] border-3 mt-6 p-4 sm:mt-8 mb-6 sm:mb-8 rounded-[32px] sm:rounded-[50px] w-full max-w-[1500px] mx-auto h-auto sm:p-4 lg:px-12 grid grid-cols-1 sm:grid-cols-2 gap-4"
+      style={{
+        backgroundImage: `url(/static/Vector9.svg)`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
+      <h2 className="col-span-1 sm:col-span-2 text-center mb-3 p-3 sm:p-5 font-montserrat text-[24px] sm:text-[30px] lg:text-[40px] font-semibold">
+        What Sets Us Apart
+      </h2>
+      
+      {features.map((feature, index) => (
+        <div
+          key={index}
+          className="relative overflow-hidden rounded-2xl transform transition-all duration-300 hover:scale-110 hover:z-10 p-4 sm:p-6 lg:p-8 bg-pink-50 border-2 border-red-900 text-red-900 shadow-lg hover:shadow-2xl cursor-pointer"
+          aria-label={`Feature: ${feature.title}`}
+          role="article"
+          tabIndex={0}
+        >
+          <div className="flex items-start gap-3 sm:gap-4 lg:gap-6">
+            <div className="flex-shrink-0">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-20 lg:h-20 border-2 border-red-900 rounded-full flex items-center justify-center bg-white">
+                <img
+                  src={feature.icon}
+                  alt=""
+                  className="w-6 h-6 sm:w-7 sm:h-7 lg:w-10 lg:h-10"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <div className="flex-1 min-w-0">
+              <h3 className="font-montserrat font-bold text-base sm:text-lg lg:text-2xl xl:text-3xl mb-2 sm:mb-3 lg:mb-4 leading-tight text-red-900">
+                {feature.title}
+              </h3>
+              <p className="font-montserrat text-sm sm:text-base lg:text-lg xl:text-xl text-red-800 leading-relaxed">
+                {feature.description}
+              </p>
+            </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
+    </div>
+
+      {/*Frequently Asked Questions Section */}
+      <Faq />
+
 
       {/* App Download Section */}
       <div className="w-full max-w-[1500px] mx-auto mt-6 sm:mt-8 md:mt-10 mb-6 sm:mb-8 md:mb-10 bg-[#F4E3E3] border-[#EA9494] border-2 sm:border-3 md:border-4 rounded-[24px] sm:rounded-[32px] md:rounded-[48px] lg:rounded-[56px] shadow-md flex flex-col lg:flex-row overflow-hidden">

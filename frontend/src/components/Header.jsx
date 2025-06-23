@@ -1,18 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { LuArrowDownToLine } from "react-icons/lu";
 
-
-
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Show header when scrolling up or when at the top
+      if (currentScrollY < lastScrollY || currentScrollY < 50) {
+        setShowHeader(true);
+      } else {
+        setShowHeader(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   return (
-    <header className="bg-white shadow-md top-0 z-50">
-      <div className="flex flex-wrap items-center justify-between px-5 py-3 bg-white shadow-sm">
+    <header 
+      className={`bg-white shadow-sm border-1.5 z-50 fixed top-0 left-0 right-0 overflow-y-auto transition-transform duration-300 ease-in-out ${
+        showHeader ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
+      <div className="flex flex-wrap items-center justify-between px-5 py-3 bg-white shadow-sm border-black">
         {/* Logo */}
         <Link to="/">
-          <img src="/static/Logo.svg" alt="Naibeau Logo" className="sm:w-36 sm:h-8 w-25 h-5" />
+          <img src="/static/Logo.svg" alt="Naibeau Logo" className="h-7 w-30" />
         </Link>
 
         {/* Hamburger for small and medium screens only */}
@@ -30,7 +52,7 @@ export default function Header() {
             to="/"
             end
             className={({ isActive }) =>
-              `text-lg border-2 border-red-400 font-medium rounded-[30px] px-4 py-2 transition relative z-10 ${
+              `text-md border-2 border-red-400 font-medium rounded-[30px] px-4 py-2 transition relative z-10 ${
                 isActive
                   ? "bg-red-600 text-white"
                   : "bg-white text-red-600 hover:bg-red-600 hover:text-white"
@@ -43,7 +65,7 @@ export default function Header() {
           <NavLink
             to="/partner"
             className={({ isActive }) =>
-              `text-lg border-2 border-red-400 font-medium rounded-[30px] px-4 py-2 transition relative z-10 ${
+              `text-md border-2 border-red-400 font-medium rounded-[30px] px-4 py-2 transition relative z-10 ${
                 isActive
                   ? "bg-red-600 text-white"
                   : "bg-white text-red-600 hover:bg-red-600 hover:text-white"
@@ -52,11 +74,10 @@ export default function Header() {
           >
             Be Our Partner
           </NavLink>
-          
           <NavLink
-            to="/download"
+            to="/services"
             className={({ isActive }) =>
-              `text-lg border-2 border-red-400 font-medium rounded-[30px] px-4 py-2 flex items-center gap-2 transition relative z-10 ${
+              `text-md border-2 border-red-400 font-medium rounded-[30px] px-4 py-2 flex items-center gap-2 transition relative z-10 ${
                 isActive
                   ? "bg-red-600 text-white"
                   : "bg-white text-red-600 hover:bg-red-600 hover:text-white"
@@ -65,8 +86,25 @@ export default function Header() {
           >
             {({ isActive }) => (
               <>
-                Download the app
-                <LuArrowDownToLine className="w-6 h-6"/>
+                Services
+              </>
+            )}
+          </NavLink>
+          
+          <NavLink
+            to="/download"
+            className={({ isActive }) =>
+              `text-md border-2 border-red-400 font-medium rounded-[30px] px-4 py-2 flex items-center gap-2 transition relative z-10 ${
+                isActive
+                  ? "bg-red-600 text-white"
+                  : "bg-white text-red-600 hover:bg-red-600 hover:text-white"
+              }`
+            }
+          >
+            {({ isActive }) => (
+              <>
+                Download The App
+                <LuArrowDownToLine className="w-5 h-5"/>
               </>
             )}
           </NavLink>
@@ -90,16 +128,25 @@ export default function Header() {
               <Link
                 to="/partner"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-red-600 text-lg font-medium hover:text-red-800"
+                className="text-red-600 text-md font-medium hover:text-red-800"
               >
                 Be Our Partner
               </Link>
             </li>
             <li>
               <Link
+                to="/services"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-red-600 text-md font-medium hover:text-red-800"
+              >
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/download"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-red-600 text-lg font-medium hover:text-red-800 flex items-center gap-2"
+                className="text-red-600 text-md font-medium hover:text-red-800 flex items-center gap-2"
               >
                 Download The App
                 <LuArrowDownToLine className="w-6 h-6"/>

@@ -18,7 +18,7 @@ export default function Download() {
             {/* Main Heading */}
             <div className="mb-4 sm:mb-6 md:mb-7 lg:mb-8">
               <span>
-                <h1 className="ml-3 text-[35px] uppercase xs:text-[36px] sm:text-[42px] md:text-[56px] lg:text-[80px] xl:text-[100px] font-antonio font-semibold text-[#FF0000] leading-1.5 sm:leading-normal text-center md:text-center lg:text-left">
+                <h1 className="ml-3 text-[35px] xs:text-[36px] sm:text-[42px] md:text-[56px] lg:text-[80px] xl:text-[100px] font-antonio font-semibold text-[#FF0000] leading-1.5 sm:leading-normal text-center md:text-center lg:text-left">
                   Expert Services at Home! 
                 </h1>
                 {/* Description */}
