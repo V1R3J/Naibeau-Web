@@ -382,7 +382,8 @@ const Gallery = () => {
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
-                    className={`w-2 sm:w-2.5 lg:w-3 h-2 sm:h-2.5 lg:h-3 rounded-full 
+                    alt-text="buttons"
+                    className={`w-2 sm:w-3 lg:w-5 h-2 sm:h-2.5 lg:h-5 rounded-full 
                               transition-all duration-400 ${
                       index === currentSlide 
                         ? 'bg-red-500 shadow-lg scale-110' 

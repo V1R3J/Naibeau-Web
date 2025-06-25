@@ -17,12 +17,6 @@ import AppD from '/static/AStoreB.svg';
 import PlayD from '/static/GplayB.svg';
 import Logo from '/static/Logo.svg';
 import UScan from '/static/UScan.svg';
-import g1 from '/static/g1.svg';
-import g2 from '/static/g2.svg';
-import g3 from '/static/g3.svg';
-import g4 from '/static/g4.svg';
-import g5 from '/static/g5.svg';
-import g6 from '/static/g6.svg';
 import { FaShieldAlt, FaLock, FaHeart } from 'react-icons/fa';
 import { IoPersonAddSharp } from "react-icons/io5";
 
@@ -154,7 +148,7 @@ export default function Home() {
             here to help you get your next salon service smooth and convenient.
           </p>
           
-          <div className="mt-10 mb-3 sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-center md:items-center">
+          <div className="mt-10 mb-3 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center lg:justify-start">
             <NavLink
               to="/download"
               className="bg-[#ef3636] text-white py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-lg hover:bg-[#e60000] w-full sm:w-auto text-center transition-colors duration-300"
@@ -163,7 +157,7 @@ export default function Home() {
             </NavLink>
             <NavLink
               to="/partner"
-              className="border border-[#FF0000] text-[#FF0000] py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-lg hover:bg-[#FFEFEF] w-full sm:w-auto text-center transition-colors duration-300"
+              className="border border-[#FF0000] text-[#FF0000] py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-lg hover:opacity-80  w-full sm:w-auto text-center transition-colors duration-300"
             >
               Be Our Partner
             </NavLink>
@@ -174,7 +168,7 @@ export default function Home() {
           src={HeroImage} 
           alt="Hero" 
           className="flex-wrap overflow-hidden w-full max-w-[300px] xs:max-w-[350px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[650px] lg:max-h-[600px] xs:max-h-[300px] 
-                      sm:-mb-4 mt-4 -mb-4 mx-4 sm:mx-8 lg:mr-0 order-3 lg:order-2 object-cover rounded-[32px] sm:rounded-[56px]"
+                      sm:-mb-4 mt-4 -mb-4 mx-4 sm:mx-8 lg:mr-0 order-3 lg:order-2 object-cover rounded-[32px] sm:rounded-[56px]" fetchPriority="high"
         />
       </div>
 
@@ -340,7 +334,7 @@ export default function Home() {
       {features.map((feature, index) => (
         <div
           key={index}
-          className="relative overflow-hidden rounded-2xl transform transition-all duration-300 hover:scale-110 hover:z-10 p-4 sm:p-6 lg:p-8 bg-pink-50 border-2 border-red-900 text-red-900 shadow-lg hover:shadow-2xl cursor-pointer"
+          className="relative overflow-hidden rounded-2xl transform transition-all duration-300 hover:scale-110 hover:z-10 p-4 sm:p-6 lg:p-6 bg-pink-50 border-2 border-red-900 text-red-900 shadow-lg hover:shadow-2xl cursor-pointer"
           aria-label={`Feature: ${feature.title}`}
           role="article"
           tabIndex={0}
@@ -350,17 +344,17 @@ export default function Home() {
               <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-20 lg:h-20 border-2 border-red-900 rounded-full flex items-center justify-center bg-white">
                 <img
                   src={feature.icon}
-                  alt=""
+                  alt="icons"
                   className="w-6 h-6 sm:w-7 sm:h-7 lg:w-10 lg:h-10"
                   aria-hidden="true"
                 />
               </div>
             </div>
             <div className="flex-1 min-w-0">
-              <h3 className="font-montserrat font-bold text-base sm:text-lg lg:text-2xl xl:text-3xl mb-2 sm:mb-3 lg:mb-4 leading-tight text-red-900">
+              <h3 className="font-montserrat font-bold text-base sm:text-lg lg:text-2xl xl:text-2xl mb-2 sm:mb-3 lg:mb-4 leading-tight text-red-900">
                 {feature.title}
               </h3>
-              <p className="font-montserrat text-sm sm:text-base lg:text-lg xl:text-xl text-red-800 leading-relaxed">
+              <p className="font-montserrat text-sm sm:text-base lg:text-lg xl:text-lg text-red-800 leading-relaxed">
                 {feature.description}
               </p>
             </div>
