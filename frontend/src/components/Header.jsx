@@ -1,144 +1,158 @@
-import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { LuArrowDownToLine } from "react-icons/lu";
+import { Link } from 'react-router-dom';
+import { FaInstagram, FaFacebook, FaWhatsapp, FaLinkedin, FaPhone, FaEnvelopeOpen, FaMapMarkerAlt } from 'react-icons/fa';
+import LogoW from '/static/LogoW.svg';
 
-export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showHeader, setShowHeader] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Show header when scrolling up or when at the top
-      if (currentScrollY < lastScrollY || currentScrollY < 50) {
-        setShowHeader(true);
-      } else {
-        setShowHeader(false);
-      }
-      
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
-
+export default function Footer() {
   return (
-    <header 
-      className={`bg-white shadow-sm border-1.5 z-50 fixed top-0 left-0 right-0 overflow-y-auto transition-transform duration-300 ease-in-out ${
-        showHeader ? 'translate-y-0' : '-translate-y-full'
-      }`}
-    >
-      <div className="flex flex-wrap items-center justify-between px-5 py-3 bg-white shadow-sm border-black">
-        {/* Logo */}
-        <Link to="/">
-          <img src="/static/Logo.svg" alt="Naibeau Logo" className="h-7 w-30" />
-        </Link>
-
-        {/* Hamburger for small and medium screens only */}
-        <button
-          className="block lg:hidden text-black text-3xl"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          &#9776;
-        </button>
-
-        {/* Navigation for large screens and up */}
-        <nav className="hidden lg:flex gap-3 items-center">
-          <NavLink
-            to="/"
-            end
-            className={({ isActive }) =>
-              `text-md border-2 border-red-400 font-medium rounded-[30px] px-4 py-2 transition relative z-10 ${
-                isActive
-                  ? "bg-red-600 text-white"
-                  : "bg-white text-red-600 hover:bg-red-600 hover:text-white"
-              }`
-            }
-          >
-            Home
-          </NavLink>
-
-          <NavLink
-            to="/partner"
-            className={({ isActive }) =>
-              `text-md border-2 border-red-400 font-medium rounded-[30px] px-4 py-2 transition relative z-10 ${
-                isActive
-                  ? "bg-red-600 text-white"
-                  : "bg-white text-red-600 hover:bg-red-600 hover:text-white"
-              }`
-            }
-          >
-            Be Our Partner
-          </NavLink>
+    <footer className="w-full bg-black text-white px-4 sm:px-6 lg:px-10 py-8 sm:py-12">
+      {/* Top Section */}
+      <div className="max-w-screen-xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           
-          <NavLink
-            to="/download"
-            className={({ isActive }) =>
-              `text-md border-2 border-red-400 font-medium rounded-[30px] px-4 py-2 flex items-center gap-2 transition relative z-10 ${
-                isActive
-                  ? "bg-red-600 text-white"
-                  : "bg-white text-red-600 hover:bg-red-600 hover:text-white"
-              }`
-            }
-          >
-            {({ isActive }) => (
-              <>
-                Download The App
-                <LuArrowDownToLine className="w-5 h-5"/>
-              </>
-            )}
-          </NavLink>
-        </nav>
+          {/* Logo & About */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <Link to="/" className="inline-block">
+              <img 
+                src={LogoW} 
+                alt="Naibeau Logo" 
+                className="w-32 h-7 sm:w-36 sm:h-8 mb-4" 
+              />
+            </Link>
+            <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+              Naibeau is the ultimate app for affordable, on-demand home salon and wellness services in Ahmedabad. We connect you with top professionals and services, ensuring a premium and convenient experience tailored to your needs.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h2 className="text-lg sm:text-xl font-semibold mb-4">Quick Links</h2>
+            <ul className="space-y-2 text-sm sm:text-base text-gray-300">
+              <li><Link to="/" className="hover:text-red-500 transition-colors">Home</Link></li>
+              <li><Link to="/partner" className="hover:text-red-500 transition-colors">Be Our Partner</Link></li>
+              <li><Link to="/services" className="hover:text-red-500 transition-colors">Services</Link></li>
+              <li><Link to="/download" className="hover:text-red-500 transition-colors">Download The App</Link></li>
+              <li><Link to="/privacy" className="hover:text-red-500 transition-colors">Privacy Policy</Link></li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h2 className="text-lg sm:text-xl font-semibold mb-4">Services</h2>
+            <ul className="space-y-2 text-sm sm:text-base text-gray-300">
+              <li>
+                <a 
+                  href="/services#salon" 
+                  className="hover:text-red-500 transition-colors"
+                >
+                  Salon Services
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/services#spa" 
+                  className="hover:text-red-500 transition-colors"
+                >
+                  Spa Services
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/services#makeup" 
+                  className="hover:text-red-500 transition-colors"
+                >
+                  Makeup Services
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h2 className="text-lg sm:text-xl font-semibold mb-4">Contact Us</h2>
+            <div className="space-y-3">
+              <a 
+                href="mailto:support@naibeau.com" 
+                className="flex items-center gap-2 hover:text-red-500 text-gray-300 transition-colors text-sm sm:text-base"
+              >
+                <FaEnvelopeOpen className="text-red-600 flex-shrink-0" /> 
+                <span className="break-all">support@naibeau.com</span>
+              </a>
+              
+              <a 
+                href="tel:+919227177657" 
+                className="flex items-center gap-2 text-gray-300 hover:text-red-500 transition-colors text-sm sm:text-base"
+              >
+                <FaPhone className="text-red-600 flex-shrink-0" /> 
+                +91 92271 77657
+              </a>
+              
+              <a 
+                href="https://maps.app.goo.gl/EPWDrDi8towehc4j7" 
+                className="flex items-start gap-2 text-gray-300 hover:text-red-500 transition-colors text-sm sm:text-base"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaMapMarkerAlt className="text-red-600 flex-shrink-0 mt-1" /> 
+                <span className="leading-relaxed">
+                  2nd Floor, Innovation Hub, Prajna Puram, KCG Campus, opp. PRL, 
+                  Navrangpura, Ahmedabad, Gujarat 380015
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Mobile Menu: simple vertical links - show only when open and on smaller than large */}
-      {isMenuOpen && (
-        <nav className="lg:hidden bg-white shadow-md border-t border-gray-200 px-5 py-4">
-          <ul className="flex flex-col gap-3">
-            <li>
-              <Link
-                to="/"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-red-600 text-lg font-medium hover:text-red-800"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/partner"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-red-600 text-md font-medium hover:text-red-800"
-              >
-                Be Our Partner
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/services"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-red-600 text-md font-medium hover:text-red-800"
-              >
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/download"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-red-600 text-md font-medium hover:text-red-800 flex items-center gap-2"
-              >
-                Download The App
-                <LuArrowDownToLine className="w-6 h-6"/>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      )}
-    </header>
+      {/* Divider */}
+      <div className="border-t border-dashed border-gray-600 mt-8 sm:mt-10 mb-6" />
+
+      {/* Bottom Row */}
+      <div className="max-w-screen-xl mx-auto">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="flex gap-4 text-red-600 text-2xl sm:text-3xl order-2 sm:order-1">
+            <a 
+              href="https://www.instagram.com/naibeau.official/" 
+              aria-label="Instagram" 
+              className="hover:text-white transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram />
+            </a>
+            <a 
+              href="https://www.facebook.com/profile.php?id=61563181074987" 
+              aria-label="Facebook" 
+              className="hover:text-white transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebook />
+            </a>
+            <a 
+              href="https://wa.me/919227177657" 
+              aria-label="WhatsApp" 
+              className="hover:text-white transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaWhatsapp />
+            </a>
+            <a 
+              href="https://www.linkedin.com/company/naibeau/" 
+              aria-label="LinkedIn" 
+              className="hover:text-white transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin />
+            </a>
+          </div>
+          
+          <p className="text-xs sm:text-sm text-gray-400 text-center order-1 sm:order-2">
+            Naiplus Solutions pvt. ltd. &copy; 2025. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 }

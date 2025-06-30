@@ -63,7 +63,7 @@ export default function Faq() {
                 Frequently Asked Questions
             </h1>
             <button 
-                className="h-[50px] w-[150px] p-3 text-gray-600 bg-white mb-2 border-red-300 border-2 border-b-4 rounded-lg text-[10px] sm:text-[15px]"
+                className="sm:h-[50px] sm:w-[150px] w-[100px] h-[40px] p-3 text-gray-600 bg-white mb-2 border-red-300 border-2 border-b-4 rounded-lg text-[10px] sm:text-[15px]"
                 onClick={toggleExpandAll}
             >
                 {allExpanded ? 'Collapse all' : 'Expand all'}

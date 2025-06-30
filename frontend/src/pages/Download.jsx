@@ -9,7 +9,7 @@ export default function Download() {
     <div className="ml-3 mr-3 px-4 sm:px-6 md:px-8 lg:px-8" >
       {/* Pink Box Section */}
       <div
-        className="mt-4 w-full min-h-[450px] sm:min-h-[550px] md:min-h-[570px] lg:h-[630px] rounded-[32px] sm:rounded-[36px] md:rounded-[48px] lg:rounded-[56px] border-red-300 border-2 mx-auto px-4 sm:px-6 md:px-8 lg:px-8 py-5 sm:py-6 md:py-7 flex flex-col lg:flex-row relative bg-[#FFEFEF] overflow-hidden">
+        className="mt-4 w-full min-h-[450px] sm:min-h-[550px] md:min-h-[570px] lg:h-[630px] rounded-[32px] sm:rounded-[36px] md:rounded-[48px] lg:rounded-[56px] border-red-300 border-2 mx-auto px-4 sm:px-6 md:px-8 lg:px-8 py-5 sm:py-6 md:py-7 flex flex-col lg:flex-row relative bg-[#FFF0F0] overflow-hidden">
         {/* Content Container */}
         <div className="flex flex-col lg:flex-row w-full gap-2 sm:gap-4 md:gap-6 lg:gap-8 h-full">
           
@@ -18,11 +18,11 @@ export default function Download() {
             {/* Main Heading */}
             <div className="mb-4 sm:mb-6 md:mb-7 lg:mb-8">
               <span>
-                <h1 className="ml-3 text-[35px] xs:text-[36px] sm:text-[42px] md:text-[56px] lg:text-[80px] xl:text-[100px] font-antonio font-semibold text-[#FF0000] leading-1.5 sm:leading-normal text-center md:text-center lg:text-left">
-                  Expert Services at Home! 
+                <h1 className="ml-3 text-[35px] xs:text-[36px] sm:text-[42px] md:text-[56px] lg:text-[80px] xl:text-[90px] font-montserrat font-medium text-[#A20E0E] leading-1.5 sm:leading-normal text-center md:text-center lg:text-left">
+                  Salon Services at Home! 
                 </h1>
                 {/* Description */}
-                <p className="ml-3 w-full max-w-[589px] text-[12px] xs:text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] mt-4 sm:mt-5 md:mt-6 mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-[#808285] leading-relaxed text-center md:text-center lg:text-left">
+                <p className="ml-3 w-full max-w-[589px] text-[12px] xs:text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] mt-4 sm:mt-5 md:mt-6 mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-[#3B3B3B] leading-relaxed text-center md:text-center lg:text-left">
                   Why step out when luxury can come to you? Book beauty services from top-rated professionals anytime, at your place.
                 </p>
                 {/* Benefits Image */}
@@ -51,7 +51,7 @@ export default function Download() {
       {/* Download Section */}
       <div className="flex flex-col items-center text-center py-8 sm:py-9 md:py-10 mt-8 sm:mt-9 md:mt-10 mb-8 sm:mb-9 md:mb-10 px-4 sm:px-6 md:px-8">
         <div className="relative w-full max-w-[400px] md:max-w-[480px] mb-6 sm:mb-7 md:mb-8">
-          <h2 className="text-[22px] sm:text-[26px] md:text-[30px] lg:text-[35px] font-semibold  mb-3">
+          <h2 className="text-[22px] sm:text-[26px] md:text-[30px] lg:text-[35px] font-semibold mb-3">
             Download the app
           </h2>
           <img
@@ -60,7 +60,7 @@ export default function Download() {
             className="absolute bottom-[-5px] left-1/2 transform -translate-x-1/2 w-[200px] xs:w-[100px] sm:w-[320px] md:w-[360px] lg:w-full max-w-[350px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[250px] h-auto" />
         </div>
 
-        <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 w-full max-w-[500px] md:max-w-[600px] px-2">
+        <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 w-full max-w-[500px] md:max-w-[550px]  px-2">
           <a
             href="https://play.google.com/store/apps/details?id=com.naibeau_user"
             className="rounded-[35px] sm:rounded-[40px] md:rounded-[45px] flex items-center gap-3 sm:gap-4 md:gap-5 px-4 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 border-2 border-black hover:scale-110 hover:shadow-2xl transform transition-transform duration-300 hover:z-10 justify-center"

@@ -7,10 +7,6 @@ import MakeupIcon from "/static/makeup.svg";
 import MaleSpaIcon from "/static/malespa.svg";
 import MaleSalonIcon from "/static/malesalon.svg";
 import ReferImage from "/static/refer.svg";
-import maleicon from "/static/maleicon.svg";
-import femaleicon from "/static/femaleicon.svg";
-import maleiconw from "/static/maleiconw.svg";
-import femaleiconw from "/static/femaleiconw.svg";
 import Gallery from "../components/Gallery";
 import Faq from "../components/Faq";
 import AppD from '/static/AStoreB.svg';
@@ -19,6 +15,8 @@ import Logo from '/static/Logo.svg';
 import UScan from '/static/UScan.svg';
 import { FaShieldAlt, FaLock, FaHeart } from 'react-icons/fa';
 import { IoPersonAddSharp } from "react-icons/io5";
+import { PiGenderMaleDuotone, PiGenderFemaleDuotone } from "react-icons/pi";
+
 
 
 export default function Home() {
@@ -83,9 +81,9 @@ export default function Home() {
         }}
       >
         <div className="mt-5 mx-4 sm:mx-8 lg:ml-20 text-center lg:text-left order-2 lg:order-1">
-          <h1 className="text-[28px] xs:text-[35px] sm:text-[45px] lg:text-[55px] font-bold leading-tight mt-2">
-            Get Your Vibe With <br />
-            The Right <span className="bg-gradient-to-r from-red-400 via-red-600 to-black/60 bg-clip-text text-transparent"> Home Salon Partner! </span>
+          <h1 className="text-[28px] xs:text-[35px] text-[#3B3B3B] sm:text-[45px] lg:text-[55px] font-bold leading-tight mt-2">
+            Get your vibe with <br />
+            the right <span className="bg-gradient-to-r from-red-400 via-red-600 to-black/60 bg-clip-text text-transparent"> Home Salon Partner! </span>
           </h1>
       <div className="mt-6 mb-4">
         {/* Mobile Version - Simple Row */}
@@ -143,7 +141,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-          <p className="text-gray-600 text-[15px] sm:text-[20px] sm:text-md mt-2 max-w-[500px] mx-auto lg:mx-0">
+          <p className="text-gray-600 text-[15px] sm:text-[20px] text-[#3B3B3B] sm:text-md mt-2 max-w-[500px] mx-auto lg:mx-0">
             Get <span className="font-bold text-[#FF0000]">naibeau</span> for your next booking. We are
             here to help you get your next salon service smooth and convenient.
           </p>
@@ -151,15 +149,15 @@ export default function Home() {
           <div className="mt-10 mb-3 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center lg:justify-start">
             <NavLink
               to="/download"
-              className="bg-[#ef3636] text-white py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-lg hover:bg-[#e60000] w-full sm:w-auto text-center transition-colors duration-300"
+              className="bg-[#ef3636] text-white hover:scale-110 py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-lg hover:bg-[#e60000] w-full sm:w-auto text-center duration-300 transition-transform"
             >
-              Download The App
+              Download the app
             </NavLink>
             <NavLink
               to="/partner"
-              className="border border-[#FF0000] text-[#FF0000] py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-lg hover:opacity-80  w-full sm:w-auto text-center transition-colors duration-300"
+              className="border border-[#FF0000] hover:scale-110 text-[#FF0000] py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-lg hover:opacity-80  w-full sm:w-auto text-center transition-transform duration-300"
             >
-              Be Our Partner
+              Be our partner
             </NavLink>
           </div>
         </div>
@@ -189,20 +187,18 @@ export default function Home() {
           </p>
         </div>
 
+        {/*Gender Toggle*/}
        <div className="flex items-center justify-center mt-5 ">
-        <div className="bg-white rounded-full p-1 w-full max-w-[450px] h-[55px] sm:h-[65px] shadow-md flex justify-between items-center mx-4 relative">
+        <div className="bg-white rounded-full p-1 w-full border-2 max-w-[450px] h-[55px] sm:h-[65px] shadow-md flex justify-between items-center mx-4 relative">
           {/* Sliding Background Indicator */}
           <div 
-            className={`absolute top-1 bottom-1 w-[calc(50%-2px)] bg-[#FF0000] rounded-full 
+            className={`absolute top-1 bottom-1 w-[calc(50%)] bg-[#FF0000] rounded-full 
                         transition-all duration-500 ease-in-out shadow-md z-0
-                        ${activeTab === "Women" ? "left-1" : "left-[calc(50%+1px)]"}`}
+                        ${activeTab === "Women" ? "left-1" : "left-[calc(49%)]"}`}
           />
           
           {/* Women Button */}
-          <button
-            className={`flex items-center justify-center gap-1 sm:gap-2 flex-1 h-[40px] sm:h-[50px] 
-                        py-2 px-3 sm:px-5 rounded-full font-semibold z-10 relative
-                        transition-all duration-500 ease-in-out
+          <button className={`flex items-center justify-center gap-1 sm:gap-2 flex-1 h-[40px] sm:h-[50px] py-2 px-3 sm:px-5 rounded-full font-semibold z-10 relative transition-all duration-500 ease-in-out
                         ${
                           activeTab === "Women" 
                             ? "text-white" 
@@ -210,17 +206,17 @@ export default function Home() {
                         }`}
             onClick={() => setActiveTab("Women")}
           >
-            <img
-              src={activeTab === "Women" ? femaleiconw : femaleicon}
-              className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 transition-all duration-500 ease-in-out"
-              alt="Female Icon"
+           <PiGenderFemaleDuotone
+              className={`text-[14px] sm:text-[16px] lg:text-[25px] transition-transform duration-500 ${
+                activeTab === "Women" ? "rotate-[360deg]" : "rotate-0"
+              }`}
             />
-            <p className="font-montserrat text-[14px] sm:text-[16px] lg:text-[18px] 
+            <p className="font-montserrat text-[14px] sm:text-[16px] lg:text-[25px] 
                           transition-all duration-500 ease-in-out font-medium">
               Women
             </p>
           </button>
-          
+
           {/* Men Button */}
           <button
             className={`flex items-center justify-center gap-1 sm:gap-2 flex-1 h-[40px] sm:h-[50px] 
@@ -233,16 +229,17 @@ export default function Home() {
                         }`}
             onClick={() => setActiveTab("Men")}
           >
-            <img
-              src={activeTab === "Men" ? maleiconw : maleicon}
-              className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 transition-all duration-500 ease-in-out"
-              alt="Male Icon"
+            <PiGenderMaleDuotone
+              className={`text-[14px] sm:text-[16px] lg:text-[25px] transition-transform duration-500 ${
+                activeTab === "Men" ? "rotate-[360deg]" : "rotate-0"
+              }`}
             />
-            <p className="font-montserrat text-[14px] sm:text-[16px] lg:text-[18px] 
+            <p className="font-montserrat text-[14px] sm:text-[16px] lg:text-[25px] 
                           transition-all duration-500 ease-in-out font-medium">
               Men
             </p>
           </button>
+
         </div>
       </div>
 
