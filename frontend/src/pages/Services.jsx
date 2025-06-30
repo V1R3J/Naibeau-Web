@@ -1,69 +1,56 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import { PiGenderMaleDuotone, PiGenderFemaleDuotone } from "react-icons/pi";
 
-// Add this useEffect after your useState
-useEffect(() => {
-  const hash = window.location.hash.replace('#', '');
-  if (hash) {
-    setTimeout(() => {
-      const element = document.getElementById(hash);
-      if (element) {
-        element.scrollIntoView();
-      }
-    }, 100);
-  }
-}, []);
-
-export default function Services() {
+const Services = () => {
   const [selectedGender, setSelectedGender] = useState('women')
 
   const servicesData = {
     salon: {
       women: [
-        { name: 'Facial & Cleanup', icon: `url(/static/icons/s1.svg)`},
-        { name: 'Waxing', icon: `url(/static/icons/s2.svg)` },
-        { name: 'Pedicure', icon: `url(/static/icons/s3.svg)` },
-        { name: 'Manicure', icon: `url(/static/icons/s4.svg)` },
-        { name: 'Threading', icon: `url(/static/icons/s5.svg)` },
-        { name: 'Bleach & De-tan', icon: `url(/static/icons/s6.svg)` },
-        { name: 'Blow-dry & styling', icon: `url(/static/icons/s7.svg)` },
-        { name: 'Cut & Style', icon: `url(/static/icons/s8.svg)` },
-        { name: 'Trim & Style', icon: `url(/static/icons/s9.svg)` },
-        { name: 'Hair Care', icon: `url(/static/icons/s10.svg)` },
-        { name: 'Hair Color', icon: `url(/static/icons/s11.svg)` },
-        { name: 'Hair extension', icon: `url(/static/icons/s12.svg)` },
+        { name: 'Facial & Cleanup', icon: `/static/icons/s1.svg`},
+        { name: 'Waxing', icon: `/static/icons/s2.svg` },
+        { name: 'Pedicure', icon: `/static/icons/s3.svg` },
+        { name: 'Manicure', icon: `/static/icons/s4.svg` },
+        { name: 'Threading', icon: `/static/icons/s5.svg` },
+        { name: 'Bleach & De-tan', icon: `/static/icons/s6.svg` },
+        { name: 'Blow-dry & styling', icon: `/static/icons/s7.svg` },
+        { name: 'Cut & Style', icon: `/static/icons/s8.svg` },
+        { name: 'Trim & Style', icon: `/static/icons/s9.svg` },
+        { name: 'Hair Care', icon: `/static/icons/s10.svg` },
+        { name: 'Hair Color', icon: `/static/icons/s11.svg` },
+        { name: 'Hair extension', icon: `/static/icons/s12.svg` },
       ],
       men: [
-        { name: 'Hair Cut', icon: `url(/static/icons/sm1.svg)` },
-        { name: 'Beard Trimming', icon: `url(/static/icons/sm2.svg)` },
-        { name: 'Hair Styling', icon: `url(/static/icons/sm3.svg)` },
-        { name: 'Hair Wash', icon: `url(/static/icons/sm4.svg)` },
-        { name: 'Mustache Grooming', icon: `url(/static/icons/sm5.svg)` },
-        { name: 'Wedding Grooming', icon: `url(/static/icons/sm6.svg)` }
+        { name: 'Hair Cut', icon: `/static/icons/sm1.svg` },
+        { name: 'Beard Trimming', icon: `/static/icons/sm2.svg` },
+        { name: 'Hair Styling', icon: `/static/icons/sm3.svg` },
+        { name: 'Hair Wash', icon: `/static/icons/sm4.svg` },
+        { name: 'Mustache Grooming', icon: `/static/icons/sm5.svg` },
+        { name: 'Wedding Grooming', icon: `/static/icons/sm6.svg` }
       ]
     },
     spa: {
       women: [
-        { name: 'Post Natal', icon: `url(/static/icons/s13.svg)` },
-        { name: 'Stress Relief', icon: `url(/static/icons/s14.svg)` },
-        { name: 'Body Scrub', icon: `url(/static/icons/s15.svg)` },
-        { name: 'Pain Relief', icon: `url(/static/icons/s16.svg)` },
+        { name: 'Post Natal', icon: `/static/icons/s13.svg` },
+        { name: 'Stress Relief', icon: `/static/icons/s14.svg` },
+        { name: 'Body Scrub', icon: `/static/icons/s15.svg` },
+        { name: 'Pain Relief', icon: `/static/icons/s16.svg` },
       ],
       men: [
-        { name: 'Pain Relief', icon: `url(/static/icons/sm7.svg)` },
-        { name: 'Stress Relief', icon: `url(/static/icons/sm8.svg)` },
-        { name: 'Post-Workout', icon: `url(/static/icons/sm9.svg)` },
+        { name: 'Pain Relief', icon: `/static/icons/sm7.svg` },
+        { name: 'Stress Relief', icon: `/static/icons/sm8.svg` },
+        { name: 'Post-Workout', icon: `/static/icons/sm9.svg` },
       ]
     },
     makeup: {
       women: [
-        { name: 'Bridal Makeup', icon: `url(/static/icons/s17.svg)` },
-        { name: 'Traditional Makeup', icon: `url(/static/icons/s18.svg)` }
+        { name: 'Bridal Makeup', icon: `/static/icons/s17.svg` },
+        { name: 'Traditional Makeup', icon: `/static/icons/s18.svg` }
       ],
       men: [
-        { name: 'Groom Makeup', icon: `url(/static/icons/sm10.svg)` },
-        { name: 'Pre-Wedding Shoot', icon: `url(/static/icons/sm11.svg)` },
+        { name: 'Groom Makeup', icon: `/static/icons/sm10.svg` },
+        { name: 'Pre-Wedding Shoot', icon: `/static/icons/sm11.svg` },
       ]
     }
   }
@@ -72,7 +59,7 @@ export default function Services() {
     <div className="px-3 sm:px-4 md:px-6 lg:px-8">
       {/* Hero Section */}
       <div 
-        className="mt-4 w-full min-h-[400px] sm:min-h-[500px] md:min-h-[550px] lg:min-h-[600px] mb-8 rounded-[24px] sm:rounded-[32px] md:rounded-[40px] lg:rounded-[48px] border-red-300 border-2 mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 flex flex-col lg:flex-row justify-between items-center relative bg-[#FFF0F0] overflow-hidden"
+        className="mt-4 w-full min-h-[400px] sm:min-h-[500px] md:min-h-[550px] lg:max-h-[640px] mb-8 rounded-[24px] sm:rounded-[32px] md:rounded-[40px] lg:rounded-[48px] border-red-300 border-2 mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 flex flex-col lg:flex-row justify-between items-center relative bg-[#FFF0F0] overflow-hidden"
         style={{
           backgroundImage: `url(/static/Vector10.svg)`,
           backgroundSize: "cover",
@@ -183,9 +170,9 @@ export default function Services() {
                   className="bg-white rounded-full w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-44 lg:h-44 border-2 border-gray-400 hover:shadow-lg shadow-md border-b-8 transition-all duration-300 transform hover:scale-110 flex flex-col justify-center items-center p-1 mx-auto"
                 >
                   <div 
-                    className="w-12 h-12 md:w-15 md:h-15 lg:w-20 lg:h-20  mb-1 bg-no-repeat bg-center bg-contain"
+                    className="w-12 h-12 md:w-15 md:h-15 lg:w-20 lg:h-20 mb-1 bg-no-repeat bg-center bg-contain"
                     style={{ 
-                      backgroundImage: service.icon,
+                      backgroundImage: `url(${service.icon})`,
                       filter: 'brightness(0) saturate(100%) invert(25%) sepia(74%) saturate(4289%) hue-rotate(344deg) brightness(93%) contrast(97%)'
                     }}
                   />
@@ -211,9 +198,9 @@ export default function Services() {
                   className="bg-white rounded-full w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-44 lg:h-44 border-2 border-gray-400 shadow-md border-b-8 transition-all duration-300 transform hover:scale-110 flex flex-col justify-center items-center p-1 mx-auto"
                 >
                   <div 
-                    className="w-12 h-12 md:w-15 md:h-15 lg:w-20 lg:h-20  mb-1 bg-no-repeat bg-center bg-contain"
+                    className="w-12 h-12 md:w-15 md:h-15 lg:w-20 lg:h-20 mb-1 bg-no-repeat bg-center bg-contain"
                     style={{ 
-                      backgroundImage: service.icon,
+                      backgroundImage: `url(${service.icon})`,
                       filter: 'brightness(0) saturate(100%) invert(25%) sepia(74%) saturate(4289%) hue-rotate(344deg) brightness(93%) contrast(97%)'
                     }}
                   />
@@ -239,9 +226,9 @@ export default function Services() {
                   className="bg-white rounded-full w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-44 lg:h-44 border-2 border-gray-400 shadow-md border-b-8 transition-all duration-300 transform hover:scale-110 flex flex-col justify-center items-center p-1 mx-auto"
                 >
                   <div 
-                    className="w-12 h-12 md:w-15 md:h-15 lg:w-20 lg:h-20  mb-1 bg-no-repeat bg-center bg-contain"
+                    className="w-12 h-12 md:w-15 md:h-15 lg:w-20 lg:h-20 mb-1 bg-no-repeat bg-center bg-contain"
                     style={{ 
-                      backgroundImage: service.icon,
+                      backgroundImage: `url(${service.icon})`,
                       filter: 'brightness(0) saturate(100%) invert(25%) sepia(74%) saturate(4289%) hue-rotate(344deg) brightness(93%) contrast(97%)'
                     }}
                   />
@@ -260,3 +247,5 @@ export default function Services() {
     </div>
   )
 }
+
+export default Services

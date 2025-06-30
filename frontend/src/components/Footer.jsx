@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="w-full bg-black text-white px-4 sm:px-6 lg:px-10 py-8 sm:py-12">
       {/* Top Section */}
       <div className="max-w-screen-xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
           
           {/* Logo & About */}
           <div className="sm:col-span-2 lg:col-span-1">
