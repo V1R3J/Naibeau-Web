@@ -135,8 +135,8 @@ export default function Header() {
             className={({ isActive }) =>
               `text-base font-medium rounded-[30px] px-4 py-2 flex items-center gap-2 transition-all duration-200 relative z-10 ${
                 isActive
-                  ? "bg-red-600 text-white shadow-md"
-                  : "bg-white text-red-600 hover:bg-red-600 hover:text-white border border-red-600"
+                  ? "bg-red-600 text-white shadow-md border-2 border-red-600 border-b-4 "
+                  : "bg-white text-red-600 hover:bg-red-600 hover:text-white border-2 border-red-600 border-b-4 "
               }`
             }
           >

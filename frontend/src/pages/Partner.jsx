@@ -83,7 +83,7 @@ export default function Partner() {
           </p>
 
           {/* App Download Buttons */}
-          <div className="flex sm:flex-row gap-4 sm:gap-6 md:gap-8 mx-auto lg:mx-6 mt-4 md:mt-6 lg:mt-1 items-center">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 mx-auto lg:mx-6 mt-4 md:mt-6 lg:mt-1 items-center">
             <a 
               href="https://apps.apple.com/in/app/naibeau-partner/id6743756318" 
               className="cursor-pointer transform hover:scale-105 transition-transform duration-200"

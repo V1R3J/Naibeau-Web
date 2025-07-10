@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="w-full bg-black text-white px-4 sm:px-6 lg:px-10 py-8 sm:py-12">
       {/* Top Section */}
       <div className="max-w-screen-xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8">
           
           {/* Logo & About */}
           <div className="sm:col-span-2 lg:col-span-1">
@@ -109,19 +109,48 @@ export default function Footer() {
                 <FaPhone className="text-red-600 flex-shrink-0" /> 
                 +91 92271 77657
               </a>
-              
-              <a 
-                href="https://maps.app.goo.gl/EPWDrDi8towehc4j7" 
-                className="flex items-start gap-2 text-gray-300 hover:text-red-500 transition-colors text-sm sm:text-base"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaMapMarkerAlt className="text-red-600 flex-shrink-0 mt-1" /> 
-                <span className="leading-relaxed">
-                  2nd Floor, Innovation Hub, Prajna Puram, KCG Campus, opp. PRL, 
-                  Navrangpura, Ahmedabad, Gujarat 380015
-                </span>
-              </a>
+            </div>
+          </div>
+
+          {/* Addresses Box */}
+          <div>
+            <h2 className="text-lg sm:text-xl font-semibold mb-4">Our Addresses</h2>
+            <div className="space-y-4">
+              {/* Main Office */}
+              <div>
+                <h3 className="text-sm font-medium text-red-400 mb-2">Office 1</h3>
+                <a 
+                  href="https://maps.app.goo.gl/EPWDrDi8towehc4j7" 
+                  className="flex items-start gap-2 text-gray-300 hover:text-red-500 transition-colors text-sm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaMapMarkerAlt className="text-red-600 flex-shrink-0 mt-1" /> 
+                  <span className="leading-relaxed">
+                    2nd Floor, Innovation Hub, Prajna Puram, KCG Campus, opp. PRL, 
+                    Navrangpura, Ahmedabad, Gujarat 380015
+                  </span>
+                </a>
+              </div>
+
+              {/* EDII Office */}
+              <div>
+                <h3 className="text-sm font-medium text-red-400 mb-2">Office 2</h3>
+                <div className="flex items-start gap-2 text-gray-300 text-sm">
+                  <FaMapMarkerAlt className="text-red-600 flex-shrink-0 mt-1" /> 
+                  <a 
+                  href="https://maps.app.goo.gl/t2S39Cba38fDgNvc9" 
+                  className="flex items-start gap-2 text-gray-300 hover:text-red-500 transition-colors text-sm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="leading-relaxed">
+                    Office 4, Cradle, Entrepreneurship Development Institute of India (EDII), 
+                    P.O. Bhat – 382 428, Dist. Gandhinagar, Gujarat, India
+                  </span>
+                </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

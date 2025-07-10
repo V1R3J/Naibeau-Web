@@ -159,13 +159,13 @@ export default function Home() {
           <div className="mt-10 mb-3 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center lg:justify-start">
             <NavLink
               to="/download"
-              className="bg-[#ef3636] text-white hover:scale-110 py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-lg hover:bg-[#e60000] w-full sm:w-auto text-center duration-300 transition-transform"
+              className="bg-[#ef3636] text-white border-[1px] hover:scale-110 py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-xl hover:bg-[#e60000] w-full sm:w-auto text-center duration-300 transition-transform"
             >
               Download the app
             </NavLink>
             <NavLink
               to="/partner"
-              className="border border-[#FF0000] hover:scale-110 text-[#FF0000] py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-lg hover:opacity-80 w-full sm:w-auto text-center transition-transform duration-300"
+              className=" border-[#FF0000] border-[2px] hover:scale-110 text-[#FF0000] py-2 px-4 sm:px-6 rounded-full font-semibold text-base sm:text-xl hover:opacity-80 w-full sm:w-auto text-center transition-transform duration-300"
             >
               Be our partner
             </NavLink>
@@ -176,7 +176,7 @@ export default function Home() {
           src={HeroImage} 
           alt="Hero" 
           className="flex-wrap overflow-hidden w-full max-w-[300px] xs:max-w-[350px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[650px] lg:max-h-[600px] xs:max-h-[300px] sm:-mb-4 mt-4 -mb-4 mx-4 sm:mx-8 lg:mr-0 order-3 lg:order-2 object-cover rounded-[32px] sm:rounded-[56px]" 
-          fetchpriority="high"
+          fetchPriority="high"
         />
       </div>
 
@@ -199,7 +199,7 @@ export default function Home() {
 
         {/* Gender Toggle */}
         <div className="flex items-center justify-center mt-5">
-          <div className="bg-white rounded-full p-1 w-full border-2 max-w-[450px] h-[55px] sm:h-[65px] shadow-md flex justify-between items-center mx-4 relative">
+          <div className="bg-white rounded-full p-1 w-full border-2 border-gray-300 max-w-[450px] h-[55px] sm:h-[65px] shadow-md flex justify-between items-center mx-4 relative">
             {/* Sliding Background Indicator */}
             <div 
               className={`absolute top-1 bottom-1 w-[calc(50%)] bg-[#FF0000] rounded-full 
